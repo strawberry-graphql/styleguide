@@ -3,6 +3,8 @@ import "../src/styles/globals.css";
 import localFont from "@next/font/local";
 import { JetBrains_Mono } from "@next/font/google";
 
+import { Separator } from "../src/components/separator/separator";
+
 const ranade = localFont({
   src: [
     {
@@ -53,6 +55,12 @@ export const parameters = {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
+    },
+  },
+
+  docs: {
+    components: {
+      hr: Separator,
     },
   },
 };

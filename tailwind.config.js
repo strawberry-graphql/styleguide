@@ -131,6 +131,28 @@ module.exports = {
         )
       ),
     },
+    fontSize: {
+      display: "60px",
+      "display-s": "44px",
+      "heading-1": "48px",
+      "heading-1-s": "36px",
+      "heading-2": "40px",
+      "heading-2-s": "32px",
+      "heading-3": "32px",
+      "heading-4": "24px",
+
+      code: "16px",
+      base: "20px",
+
+      paragraph: "20px",
+      "paragraph-s": "18px",
+      "paragraph-2": "17px",
+
+      caption: "14px",
+      "label-1": "16px",
+      "label-2": "13px",
+    },
+
     extend: {
       fontFamily: {
         sans: ["var(--font-satoshi)", ...fontFamily.sans],
