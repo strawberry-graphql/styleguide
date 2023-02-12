@@ -2,7 +2,6 @@ import path from "path";
 
 import type { StorybookConfig } from "@storybook/nextjs";
 import type { Configuration } from "webpack";
-1;
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -18,6 +17,13 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+
+  staticDirs: [
+    {
+      from: "../src/fonts",
+      to: "/fonts",
+    },
+  ],
 
   webpackFinal: async (config: Configuration) => {
     config.module!.rules!.push({

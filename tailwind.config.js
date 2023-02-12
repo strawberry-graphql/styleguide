@@ -1,5 +1,6 @@
 // @ts-check
 /** @type {import('tailwindcss').Config} */
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const colors = {
   greyscale: [
@@ -130,7 +131,13 @@ module.exports = {
         )
       ),
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-satoshi)", ...fontFamily.sans],
+        display: ["var(--font-ranade)", ...fontFamily.sans],
+        mono: ["var(--font-jetbrains-mono)", ...fontFamily.mono],
+      },
+    },
   },
   plugins: [],
 };
