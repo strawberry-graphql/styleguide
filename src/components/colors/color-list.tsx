@@ -9,7 +9,7 @@ type Color = {
 };
 
 const Title = ({ children }: { children: React.ReactNode }) => {
-  return <h2 className="font-sans font-bold mt-1">{children}</h2>;
+  return <h2 className="font-sans font-bold mt-4">{children}</h2>;
 };
 const Subtitle = ({ children }: { children: React.ReactNode }) => {
   return <p className="text-sm text-g-700">{children}</p>;

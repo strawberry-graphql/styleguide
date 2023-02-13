@@ -39,7 +39,7 @@ const Style = ({
   return (
     <div className="sb-unstyled">
       {children}
-      <Caption className="mt-2 uppercase text-g-700 font-bold">
+      <Caption className="mt-4 uppercase text-g-700 font-bold">
         {caption}
       </Caption>
     </div>
