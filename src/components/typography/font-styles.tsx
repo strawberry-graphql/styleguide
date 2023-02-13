@@ -1,12 +1,31 @@
-import { typography } from "../../../tailwind.config";
+import { fonts, typography } from "../../../tailwind.config";
 
 import { Display } from "./display";
 import { Caption } from "./caption";
 import { Heading } from "./heading";
+import { Paragraph } from "./paragraph";
+import { Label } from "./label";
+import { Code } from "./code";
 
-export const Grid = ({ children }: { children: React.ReactNode }) => {
+export const Grid = ({
+  children,
+  rows = 1,
+  columns = 2,
+}: {
+  children: React.ReactNode;
+  rows?: number;
+  columns?: number;
+}) => {
   return (
-    <div className="grid gap-x-6 grid-cols-2 items-baseline">{children}</div>
+    <div
+      className="grid gap-6 items-baseline sb-unstyled"
+      style={{
+        gridTemplateRows: `repeat(${rows}, auto)`,
+        gridTemplateColumns: `repeat(${columns}, 1fr)`,
+      }}
+    >
+      {children}
+    </div>
   );
 };
 
@@ -18,41 +37,104 @@ const Style = ({
   caption: string;
 }) => {
   return (
-    <div className="contents sb-unstyled">
+    <div className="sb-unstyled">
       {children}
-      <Caption className="uppercase text-g-700 order-2">{caption}</Caption>
+      <Caption className="mt-2 uppercase text-g-700 font-bold">
+        {caption}
+      </Caption>
     </div>
   );
 };
 
+const getCaption = (config: {
+  font: string;
+  size: string;
+  weight: string;
+  lineHeight: string;
+}) => {
+  // @ts-ignore
+  const fontName = fonts[config.font];
+  const size = config.size.replace("px", "");
+  const lineHeight = config.lineHeight.replace("px", "");
+  const weight = {
+    400: "Regular",
+    500: "Medium",
+    700: "Bold",
+  }[config.weight];
+
+  return `${fontName} ${weight} ${size}/${lineHeight}`;
+};
+
 export const DisplayStyle = () => {
+  const fontStyle = typography.display[0];
+
   return (
-    <Grid>
-      <Style caption="Ranade medium 60/72">
-        <Display>Display 01</Display>
-      </Style>
-      <Style caption="Ranade medium 44/52">
-        <Display forceSmall>Display 01-S</Display>
-      </Style>
-    </Grid>
+    <Style caption={getCaption(fontStyle)}>
+      <Display>{fontStyle.name}</Display>
+    </Style>
   );
 };
 
 export const Headings = () => {
   return (
-    <Grid>
-      <Style caption="Ranade medium 36/44">
-        <Heading level={1}>Heading 01</Heading>
+    <Grid rows={typography.heading.length / 2}>
+      {typography.heading.map((fontStyle, index) => (
+        <Style caption={getCaption(fontStyle)} key={fontStyle.name}>
+          {/* @ts-ignore */}
+          <Heading level={index + 1}>{fontStyle.name}</Heading>
+        </Style>
+      ))}
+    </Grid>
+  );
+};
+
+export const Paragraphs = () => {
+  return (
+    <Grid rows={typography.paragraph.length}>
+      {typography.paragraph.map((fontStyle, index) => (
+        <>
+          <Style caption={getCaption(fontStyle)} key={fontStyle.name}>
+            <Paragraph variant={index == 1 ? "small" : undefined}>
+              {fontStyle.name}
+            </Paragraph>
+          </Style>
+
+          <Style
+            caption={getCaption({ ...fontStyle, weight: "700" })}
+            key={fontStyle.name}
+          >
+            <Paragraph variant={index == 1 ? "small" : undefined}>
+              <strong>{fontStyle.name}</strong>
+            </Paragraph>
+          </Style>
+        </>
+      ))}
+    </Grid>
+  );
+};
+
+export const Others = () => {
+  const codeStyle = typography.code[0];
+
+  return (
+    <Grid rows={1} columns={4}>
+      <Style caption={getCaption(codeStyle)} key={codeStyle.name}>
+        <Code>{codeStyle.name}</Code>
       </Style>
-      <Style caption="Ranade medium 28/36">
-        <Heading level={2}>Heading 02</Heading>
-      </Style>
-      <Style caption="Ranade medium 24/32">
-        <Heading level={3}>Heading 03</Heading>
-      </Style>
-      <Style caption="Ranade medium 20/28">
-        <Heading level={4}>Heading 04</Heading>
-      </Style>
+
+      {typography.caption.map((fontStyle) => (
+        <Style caption={getCaption(fontStyle)} key={fontStyle.name}>
+          <Caption>{fontStyle.name}</Caption>
+        </Style>
+      ))}
+
+      {typography.label.map((fontStyle, index) => (
+        <Style caption={getCaption(fontStyle)} key={fontStyle.name}>
+          <Label variant={index == 1 ? "small" : undefined}>
+            {fontStyle.name}
+          </Label>
+        </Style>
+      ))}
     </Grid>
   );
 };

@@ -126,7 +126,7 @@ const fonts = {
 const typography = {
   display: [
     {
-      name: "Display",
+      name: "Display 1",
       font: "display",
       key: "display",
       size: "60px",
@@ -216,7 +216,7 @@ const typography = {
     {
       font: "sans",
       name: "Label 1",
-      key: "label-1",
+      key: "label",
       size: "16px",
       weight: "700",
       lineHeight: "24px",
@@ -230,6 +230,16 @@ const typography = {
       lineHeight: "20px",
     },
   ],
+  code: [
+    {
+      font: "mono",
+      name: "Code",
+      key: "code",
+      size: "16px",
+      weight: "400",
+      lineHeight: "20px",
+    },
+  ],
 };
 
 const themeColors = Object.fromEntries(
@@ -240,11 +250,11 @@ const themeColors = Object.fromEntries(
 
 const themeFontSizes = Object.fromEntries(
   Object.values(typography).flatMap((typography) =>
-    typography.map((typography) => {
-      const result = [typography.key, typography.size];
+    typography.flatMap((typography) => {
+      const result = [[typography.key, typography.size]];
 
       if (typography.small) {
-        result.push(`${typography.key}-s`, typography.small.size);
+        result.push([`${typography.key}-s`, typography.small.size]);
       }
 
       return result;
@@ -254,6 +264,7 @@ const themeFontSizes = Object.fromEntries(
 
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  fonts,
   colors,
   typography,
   theme: {
@@ -264,7 +275,6 @@ module.exports = {
       ...themeColors,
     },
     fontSize: {
-      code: "16px",
       base: "20px",
       ...themeFontSizes,
     },

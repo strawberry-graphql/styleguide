@@ -1,7 +1,13 @@
 import { Meta, Typeset } from "@storybook/addon-docs/blocks";
 
 import { Fonts } from "./fonts";
-import { DisplayStyle, Grid, Headings } from "./font-styles";
+import {
+  DisplayStyle,
+  Grid,
+  Headings,
+  Paragraphs,
+  Others,
+} from "./font-styles";
 
 <Meta title="Typography" />
 
@@ -15,21 +21,18 @@ import { DisplayStyle, Grid, Headings } from "./font-styles";
 
 ---
 
-<Grid>
-
-<div>
-
 # Headings
 
 <Headings />
 
-</div>
-
-<div>
+---
 
 # Paragraphs
 
-</div>
+<Paragraphs />
 
+---
 
-</Grid>
+# Other
+
+<Others />

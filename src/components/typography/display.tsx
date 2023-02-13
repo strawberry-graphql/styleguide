@@ -1,18 +1,6 @@
-import clsx from "clsx";
-
-export const Display = ({
-  children,
-  forceSmall = false,
-}: {
-  children: React.ReactNode;
-  forceSmall?: boolean;
-}) => {
+export const Display = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h1
-      className={clsx("font-bold font-display text-display-s", {
-        "md:text-display": !forceSmall,
-      })}
-    >
+    <h1 className="font-bold font-display text-display-s md:text-display">
       {children}
     </h1>
   );

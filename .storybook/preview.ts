@@ -39,8 +39,6 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 });
 
-console.log(ranade, satoshi, jetbrainsMono);
-
 document.body.classList.add(ranade.variable);
 document.body.classList.add(satoshi.variable);
 document.body.classList.add(jetbrainsMono.variable);

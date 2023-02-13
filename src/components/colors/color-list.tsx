@@ -69,10 +69,9 @@ const ColorBox = ({ color }: { color: Color }) => {
 };
 
 const List = ({ name }: { name: string }) => {
-  console.log(colors);
-
   return (
     <div className="flex flex-row flex-wrap gap-6">
+      {/* @ts-ignore */}
       {colors[name].map((color: Color) => (
         <ColorBox color={color} key={color.hex} />
       ))}
@@ -93,8 +92,10 @@ export const CodeColorList = () => {
 };
 
 export const Gradient = () => {
-  const magenta = colors.accent.find((color: Color) => color.key === "magenta");
-  const orange = colors.accent.find((color: Color) => color.key === "orange");
+  const magenta = colors.accent.find(
+    (color: Color) => color.key === "magenta"
+  )!;
+  const orange = colors.accent.find((color: Color) => color.key === "orange")!;
 
   return (
     <div className="sb-unstyled flex gap-12 flex-wrap">
