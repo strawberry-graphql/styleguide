@@ -2,10 +2,10 @@ import clsx from "clsx";
 
 export const Display = ({
   children,
-  forceSmall,
+  forceSmall = false,
 }: {
   children: React.ReactNode;
-  forceSmall: boolean;
+  forceSmall?: boolean;
 }) => {
   return (
     <h1

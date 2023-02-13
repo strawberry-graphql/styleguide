@@ -24,7 +24,7 @@ export const FontBox = ({
         "font-normal": fontWeight === 400,
       })}
     >
-      <div className="rounded-3xl border-[1px] border-black flex justify-center items-center w-20 h-20 text-4xl">
+      <div className="rounded-2xl border-[1px] border-black flex justify-center items-center w-20 h-20 text-4xl">
         Aa
       </div>
 

@@ -117,40 +117,156 @@ const colors = {
   ],
 };
 
+const fonts = {
+  display: "Ranade",
+  sans: "Satoshi",
+  mono: "Jetbrains Mono",
+};
+
+const typography = {
+  display: [
+    {
+      name: "Display",
+      font: "display",
+      key: "display",
+      size: "60px",
+      weight: "700",
+      lineHeight: "72px",
+      small: {
+        size: "44px",
+        lineHeight: "52px",
+      },
+    },
+  ],
+  heading: [
+    {
+      font: "display",
+      name: "Heading 1",
+      key: "heading-1",
+      size: "48px",
+      weight: "700",
+      lineHeight: "56px",
+      small: {
+        size: "36px",
+        lineHeight: "44px",
+      },
+    },
+    {
+      font: "display",
+      name: "Heading 2",
+      key: "heading-2",
+      size: "40px",
+      weight: "700",
+      lineHeight: "48px",
+      small: {
+        size: "32px",
+        lineHeight: "40px",
+      },
+    },
+    {
+      font: "display",
+      name: "Heading 3",
+      key: "heading-3",
+      size: "32px",
+      weight: "700",
+      lineHeight: "40px",
+    },
+    {
+      font: "display",
+      name: "Heading 4",
+      key: "heading-4",
+      size: "24px",
+      weight: "700",
+      lineHeight: "32px",
+    },
+  ],
+  paragraph: [
+    {
+      font: "sans",
+      name: "Paragraph",
+      key: "paragraph",
+      size: "20px",
+      weight: "400",
+      lineHeight: "28px",
+      small: {
+        size: "18px",
+        lineHeight: "26px",
+      },
+    },
+    {
+      font: "sans",
+      name: "Paragraph 2",
+      key: "paragraph-2",
+      size: "17px",
+      weight: "400",
+      lineHeight: "24px",
+    },
+  ],
+  caption: [
+    {
+      font: "sans",
+      name: "Caption",
+      key: "caption",
+      size: "14px",
+      weight: "400",
+      lineHeight: "20px",
+    },
+  ],
+  label: [
+    {
+      font: "sans",
+      name: "Label 1",
+      key: "label-1",
+      size: "16px",
+      weight: "700",
+      lineHeight: "24px",
+    },
+    {
+      font: "sans",
+      name: "Label 2",
+      key: "label-2",
+      size: "14px",
+      weight: "700",
+      lineHeight: "20px",
+    },
+  ],
+};
+
+const themeColors = Object.fromEntries(
+  Object.values(colors).flatMap((colors) =>
+    colors.map((color) => [color.key, color.hex])
+  )
+);
+
+const themeFontSizes = Object.fromEntries(
+  Object.values(typography).flatMap((typography) =>
+    typography.map((typography) => {
+      const result = [typography.key, typography.size];
+
+      if (typography.small) {
+        result.push(`${typography.key}-s`, typography.small.size);
+      }
+
+      return result;
+    })
+  )
+);
+
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   colors,
+  typography,
   theme: {
     colors: {
       transparent: "transparent",
       current: "currentColor",
 
-      ...Object.fromEntries(
-        Object.values(colors).flatMap((colors) =>
-          colors.map((color) => [color.key, color.hex])
-        )
-      ),
+      ...themeColors,
     },
     fontSize: {
-      display: "60px",
-      "display-s": "44px",
-      "heading-1": "48px",
-      "heading-1-s": "36px",
-      "heading-2": "40px",
-      "heading-2-s": "32px",
-      "heading-3": "32px",
-      "heading-4": "24px",
-
       code: "16px",
       base: "20px",
-
-      paragraph: "20px",
-      "paragraph-s": "18px",
-      "paragraph-2": "17px",
-
-      caption: "14px",
-      "label-1": "16px",
-      "label-2": "13px",
+      ...themeFontSizes,
     },
 
     extend: {
