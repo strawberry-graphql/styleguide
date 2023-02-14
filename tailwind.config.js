@@ -276,7 +276,10 @@ module.exports = {
       ...themeColors,
     },
     spacing: {
+      0: "0px",
+      1: "1px",
       2: "2px",
+      3: "3px",
       4: "4px",
       8: "8px",
       12: "12px",
