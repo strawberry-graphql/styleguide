@@ -28,11 +28,10 @@ const Link = ({
   children: React.ReactNode;
   active?: boolean;
 }) => {
-  // TODO: use Andy's css component system
   return (
     <a
       className={clsx(
-        "block py-16 text-paragraph-2 md:text-paragraph-2",
+        "block py-16 typography-paragraph-2",
         "font-sans font-bold cursor-pointer relative group",
         "hover:text-black transition-colors",
         { "text-black": active, "text-g-500": !active }

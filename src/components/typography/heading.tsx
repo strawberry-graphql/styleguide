@@ -14,12 +14,11 @@ export const Heading = ({
   return (
     <Tag
       className={clsx(
-        "font-bold font-display",
         {
-          "text-heading-1-s md:text-heading-1": level === 1,
-          "text-heading-2-s md:text-heading-2": level === 2,
-          "text-heading-3": level === 3,
-          "text-heading-4": level === 4,
+          "typography-heading-1": level === 1,
+          "typography-heading-2": level === 2,
+          "typography-heading-3": level === 3,
+          "typography-heading-4": level === 4,
         },
         className
       )}

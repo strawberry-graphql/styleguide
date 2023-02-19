@@ -14,9 +14,9 @@ export const Paragraph = ({
 
   return (
     <Component
-      className={clsx("font-sans", {
-        "text-paragraph-s md:text-paragraph": variant === "regular",
-        "text-paragraph-2 md:text-paragraph-2": variant === "small",
+      className={clsx({
+        "typography-paragraph": variant === "regular",
+        "typography-paragraph-2": variant === "small",
       })}
       {...props}
     >

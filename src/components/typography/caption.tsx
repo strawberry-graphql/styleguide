@@ -10,7 +10,7 @@ export const Caption = ({
   style?: React.CSSProperties;
 }) => {
   return (
-    <p className={clsx("font-sans text-caption", className)} style={style}>
+    <p className={clsx("typography-caption", className)} style={style}>
       {children}
     </p>
   );

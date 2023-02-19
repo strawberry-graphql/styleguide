@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .typography-display {
+    @apply font-bold font-display text-display-s md:text-display;
+  }
+
+  .typography-caption {
+    @apply font-sans text-caption;
+  }
+
+  .typography-heading-1,
+  .typography-heading-2,
+  .typography-heading-3,
+  .typography-heading-4 {
+    @apply font-bold font-display;
+  }
+
+  .typography-heading-1 {
+    @apply text-heading-1-s md:text-heading-1;
+  }
+
+  .typography-heading-2 {
+    @apply text-heading-2-s md:text-heading-2;
+  }
+
+  .typography-heading-3 {
+    @apply text-heading-3;
+  }
+
+  .typography-heading-4 {
+    @apply text-heading-4;
+  }
+
+  .typography-paragraph {
+    @apply font-sans text-paragraph-s md:text-paragraph;
+  }
+
+  .typography-paragraph-2 {
+    @apply font-sans text-paragraph-2;
+  }
+
+  .typography-label {
+    @apply font-bold uppercase tracking-wide text-label;
+  }
+
+  .typography-label-2 {
+    @apply font-bold uppercase tracking-wide text-label-2;
+  }
+
+  .typography-code {
+    @apply font-mono text-code;
+  }
+}

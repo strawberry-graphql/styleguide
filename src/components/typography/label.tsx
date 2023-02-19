@@ -9,9 +9,9 @@ export const Label = ({
 }) => {
   return (
     <span
-      className={clsx("font-bold uppercase tracking-wide", {
-        "text-label-2": variant === "small",
-        "text-label": variant === "regular",
+      className={clsx({
+        "typography-label-2": variant === "small",
+        "typography-label": variant === "regular",
       })}
     >
       {children}
