@@ -2,7 +2,7 @@ import { FontBox } from "./FontBox";
 
 export const Fonts = () => {
   return (
-    <div className="flex flex-wrap gap-6 sb-unstyled">
+    <div className="flex flex-wrap gap-24 sb-unstyled">
       <FontBox
         title="Ranade"
         subtitle="Medium - 500"

@@ -37,7 +37,7 @@ const ColorBox = ({ color }: { color: Color }) => {
   return (
     <Box title={color.name} subtitle={color.hex}>
       <div
-        className={clsx("w-24 h-24 rounded-md", {
+        className={clsx("w-80 h-80 rounded-md", {
           "bg-strawberry": color.key === "strawberry",
           "bg-yellow": color.key === "yellow",
           "bg-yellow-light": color.key === "yellow-light",
@@ -70,7 +70,7 @@ const ColorBox = ({ color }: { color: Color }) => {
 
 const List = ({ name }: { name: string }) => {
   return (
-    <div className="flex flex-row flex-wrap gap-6">
+    <div className="flex flex-row flex-wrap gap-16">
       {/* @ts-ignore */}
       {colors[name].map((color: Color) => (
         <ColorBox color={color} key={color.hex} />
@@ -98,9 +98,9 @@ export const Gradient = () => {
   const orange = colors.accent.find((color: Color) => color.key === "orange")!;
 
   return (
-    <div className="sb-unstyled flex gap-12 flex-wrap">
-      <div className="w-48">
-        <div className="w-full h-24 rounded-md bg-gradient-to-r from-magenta to-orange" />
+    <div className="sb-unstyled flex gap-16 flex-wrap">
+      <div className="w-[224px]">
+        <div className="w-full h-80 rounded-md bg-gradient-to-r from-magenta to-orange" />
         <div className="flex flex-row justify-between">
           <div>
             <Title>{magenta.name}</Title>
@@ -112,8 +112,8 @@ export const Gradient = () => {
           </div>
         </div>
       </div>
-      <div className="w-48">
-        <div className="w-full h-24 rounded-md bg-gradient-to-r from-orange to-magenta" />
+      <div className="w-[224px]">
+        <div className="w-full h-80 rounded-md bg-gradient-to-r from-orange to-magenta" />
         <div className="flex flex-row justify-between">
           <div>
             <Title>{orange.name}</Title>

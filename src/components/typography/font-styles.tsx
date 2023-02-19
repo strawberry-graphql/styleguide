@@ -18,7 +18,7 @@ export const Grid = ({
 }) => {
   return (
     <div
-      className="grid gap-6 items-baseline sb-unstyled"
+      className="grid gap-12 items-baseline sb-unstyled"
       style={{
         gridTemplateRows: `repeat(${rows}, auto)`,
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
@@ -39,7 +39,7 @@ const Style = ({
   return (
     <div className="sb-unstyled">
       {children}
-      <Caption className="mt-2 uppercase text-g-700 font-bold">
+      <Caption className="mt-4 uppercase text-g-700 font-bold">
         {caption}
       </Caption>
     </div>
