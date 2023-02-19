@@ -4,7 +4,7 @@
 
 @layer components {
   .typography-display {
-    @apply font-bold font-display text-display-s md:text-display;
+    @apply font-medium font-display text-display-s md:text-display;
   }
 
   .typography-caption {
