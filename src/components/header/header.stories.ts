@@ -11,7 +11,7 @@ const meta: Meta<typeof Header> = {
   },
   args: {
     version: {
-      name: "v1.0.0",
+      name: "v1.0",
       href: "/",
     },
   },
