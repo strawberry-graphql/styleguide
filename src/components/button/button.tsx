@@ -1,18 +1,29 @@
 import clsx from "clsx";
 
+type Props = {
+  children: React.ReactNode;
+  disabled?: boolean;
+  as?: "button" | "a";
+} & (
+  | {
+      as: "button";
+      onClick: () => void;
+    }
+  | {
+      as: "a";
+      href: string;
+    }
+);
 export const Button = ({
   children,
   disabled = false,
+  as: Component = "button",
   ...props
-}: {
-  children: React.ReactNode;
-  disabled?: boolean;
-  onClick?: () => void;
-}) => {
+}: Props) => {
   return (
-    <button
+    <Component
       className={clsx(
-        "px-[20px] py-12 text-white",
+        "inline-block px-[20px] py-12 text-white",
         "md:px-32 md:py-16 text-white",
         "typography-label rounded-[30px]",
         {
@@ -26,6 +37,6 @@ export const Button = ({
       {...props}
     >
       {children}
-    </button>
+    </Component>
   );
 };

@@ -28,3 +28,11 @@ export const Disabled: Story = {
     disabled: true,
   },
 };
+
+export const ButtonLink: Story = {
+  args: {
+    children: "Button",
+    href: "https://www.google.com",
+    as: "a",
+  },
+};
