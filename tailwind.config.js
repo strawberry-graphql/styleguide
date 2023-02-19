@@ -268,6 +268,8 @@ module.exports = {
   colors,
   typography,
 
+  darkMode: "class",
+
   theme: {
     colors: {
       transparent: "transparent",

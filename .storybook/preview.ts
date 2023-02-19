@@ -45,9 +45,8 @@ document.body.classList.add(jetbrainsMono.variable);
 document.body.classList.add("font-sans");
 
 export const parameters = {
-  backgrounds: {
-    default: "light",
-  },
+  backgrounds: { disable: true },
+
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
