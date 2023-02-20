@@ -1,3 +1,4 @@
+// @ts-ignore
 import { DocsContainer as BaseContainer } from "@storybook/addon-docs";
 import { themes } from "@storybook/theming";
 import React, { useEffect, useState } from "react";
