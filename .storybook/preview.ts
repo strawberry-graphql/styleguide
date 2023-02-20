@@ -2,8 +2,9 @@ import "../src/styles/globals.css";
 
 import localFont from "@next/font/local";
 import { JetBrains_Mono } from "@next/font/google";
-
 import { Separator } from "../src/components/separator/separator";
+import { themes } from "@storybook/theming";
+import { ThemedDocsContainer } from "./docs-container";
 
 const ranade = localFont({
   src: [
@@ -56,6 +57,9 @@ export const parameters = {
   },
 
   docs: {
+    // theme: themes.dark,
+    container: ThemedDocsContainer,
+
     components: {
       hr: Separator,
     },
