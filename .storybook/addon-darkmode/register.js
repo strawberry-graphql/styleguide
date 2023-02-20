@@ -1,3 +1,4 @@
+// @ts-check
 import React, { useCallback, useEffect } from "react";
 import { useGlobals, useStorybookApi } from "@storybook/manager-api";
 import { Icons, IconButton } from "@storybook/components";
@@ -11,6 +12,26 @@ const Tool = () => {
 
   const toggleDarkMode = useCallback(() => {
     console.log("Toggling dark mode");
+    const iframe = document.getElementById("storybook-preview-iframe");
+
+    console.log(iframe);
+
+    if (!iframe) {
+      return;
+    }
+
+    const iframeDocument =
+      iframe.contentDocument || iframe.contentWindow?.document;
+
+    const html = iframeDocument?.getElementsByTagName("html")[0];
+
+    console.log(html);
+
+    if (!html) {
+      return;
+    }
+
+    html.classList.toggle("dark");
   });
 
   // useEffect(() => {
@@ -30,7 +51,7 @@ const Tool = () => {
       title="Toggle Dark Mode"
       onClick={toggleDarkMode}
     >
-      <Icons icon="ruler" />
+      <Icons icon="sun" />
     </IconButton>
   );
 };
