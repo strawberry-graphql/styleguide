@@ -59,6 +59,7 @@ body {
   @apply bg-white dark:bg-black text-black dark:text-white;
 }
 
-.sbdocs-preview {
+.sbdocs-preview,
+.sbdocs.sbdocs-wrapper {
   background: transparent !important;
 }
