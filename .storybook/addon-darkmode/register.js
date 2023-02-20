@@ -68,7 +68,7 @@ addons.register(ADDON_ID, () => {
   addons.add(TOOL_ID, {
     type: types.TOOL,
     title: "Toggle Dark Mode",
-    match: ({ viewMode }) => viewMode === "story",
+    // match: ({ viewMode }) => viewMode === "story",
     render: () => <Tool />,
   });
 });
