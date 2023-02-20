@@ -3,6 +3,7 @@ import React, { useCallback, useEffect } from "react";
 import { useGlobals, useStorybookApi } from "@storybook/manager-api";
 import { Icons, IconButton } from "@storybook/components";
 import { addons, types } from "@storybook/manager-api";
+import { themes } from "@storybook/theming";
 
 const TOOL_ID = "ABC";
 const ADDON_ID = "ABC";
@@ -11,10 +12,7 @@ const Tool = () => {
   const api = useStorybookApi();
 
   const toggleDarkMode = useCallback(() => {
-    console.log("Toggling dark mode");
     const iframe = document.getElementById("storybook-preview-iframe");
-
-    console.log(iframe);
 
     if (!iframe) {
       return;
@@ -25,10 +23,20 @@ const Tool = () => {
 
     const html = iframeDocument?.getElementsByTagName("html")[0];
 
-    console.log(html);
-
     if (!html) {
       return;
+    }
+
+    const isDark = html.classList.contains("dark");
+
+    if (isDark) {
+      addons.setConfig({
+        theme: themes.light,
+      });
+    } else {
+      addons.setConfig({
+        theme: themes.dark,
+      });
     }
 
     html.classList.toggle("dark");
@@ -51,7 +59,7 @@ const Tool = () => {
       title="Toggle Dark Mode"
       onClick={toggleDarkMode}
     >
-      <Icons icon="sun" />
+      <Icons icon="moon" />
     </IconButton>
   );
 };
