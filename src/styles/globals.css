@@ -63,6 +63,26 @@
   }
 }
 
+:root {
+  --code-color-green: #8ed287;
+  --code-color-blue: #aed5fb;
+  --code-color-purple: #cbabf9;
+  --code-color-pink: #ea8075;
+  --code-color-orange: #eaad75;
+
+  --shiki-color-text: #fff;
+  --shiki-color-background: transparent;
+  --shiki-token-constant: var(--code-color-blue);
+  --shiki-token-string: var(--code-color-blue);
+  --shiki-token-comment: var(--code-color-pink);
+  --shiki-token-keyword: var(--code-color-green);
+  --shiki-token-parameter: #fff;
+  --shiki-token-function: var(--code-color-purple);
+  --shiki-token-string-expression: var(--code-color-blue);
+  --shiki-token-punctuation: var(--code-color-purple);
+  --shiki-token-link: var(--code-color-orange);
+}
+
 body {
   @apply bg-white dark:bg-black text-black dark:text-white;
 }

@@ -91,27 +91,27 @@ const colors = {
   code: [
     {
       name: "C-Green",
-      hex: "#8ED287",
+      hex: "--var(--code-color-green)",
       key: "code-green",
     },
     {
       name: "C-Blue",
-      hex: "#AED5FB",
+      hex: "--var(--code-color-blue)",
       key: "code-blue",
     },
     {
       name: "C-Purple",
-      hex: "#CBABF9",
+      hex: "--var(--code-color-purple)",
       key: "code-purple",
     },
     {
       name: "C-Pink",
-      hex: "#EA8075",
+      hex: "--var(--code-color-pink)",
       key: "code-pink",
     },
     {
       name: "C-Orange",
-      hex: "#EAAD75",
+      hex: "--var(--code-color-orange)",
       key: "code-orange",
     },
   ],
