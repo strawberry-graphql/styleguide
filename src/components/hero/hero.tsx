@@ -15,7 +15,7 @@ const code = `<pre class="shiki " style="background-color: transparent" tabindex
 
 export const Hero = () => {
   return (
-    <div className="p-16 text-center space-y-48">
+    <div className="p-16 text-center space-y-48 max-w-screen-lg mx-auto">
       <Display>
         The new <span className="text-strawberry">GraphQL library</span> for
         Python 3, inspired by dataclasses.

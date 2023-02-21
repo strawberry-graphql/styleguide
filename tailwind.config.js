@@ -277,6 +277,14 @@ module.exports = {
 
       ...themeColors,
     },
+
+    screens: {
+      sm: "600px",
+      md: "1024px",
+      lg: "1280px",
+      xl: "1920px",
+    },
+
     spacing: {
       0: "0px",
       1: "1px",
@@ -295,6 +303,7 @@ module.exports = {
       72: "72px",
       80: "80px",
     },
+
     fontSize: {
       base: "20px",
       ...themeFontSizes,
@@ -308,5 +317,6 @@ module.exports = {
       },
     },
   },
+
   plugins: [],
 };

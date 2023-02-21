@@ -81,7 +81,7 @@ export const Header = ({
   };
 
   return (
-    <header className="px-40 py-16 grid grid-cols-2 items-center site-header md:flex">
+    <header className="mx-auto max-w-[1600px] px-40 py-16 grid grid-cols-2 items-center site-header md:flex">
       <div className="flex-1">
         <Logo />
       </div>
