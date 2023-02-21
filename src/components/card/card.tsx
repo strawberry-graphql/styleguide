@@ -35,7 +35,7 @@ export const Card = ({
         <CardIcon icon={icon} />
       </div>
 
-      <Paragraph bold>{title}</Paragraph>
+      <Paragraph bold className="mb-8">{title}</Paragraph>
       <Paragraph variant="small">{description}</Paragraph>
     </div>
   );
