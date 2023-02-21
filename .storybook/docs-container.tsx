@@ -9,8 +9,6 @@ export const ThemedDocsContainer = ({ children, context }) => {
   );
 
   const handler = (event: any) => {
-    console.log("storage event", event.detail.isDark);
-
     setIsDark(event.detail.isDark);
   };
 

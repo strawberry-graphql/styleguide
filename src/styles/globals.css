@@ -53,13 +53,16 @@
   .typography-code {
     @apply font-mono text-code;
   }
+
+  .border-transparency-light {
+    border-color: rgba(54, 56, 60, 0.5);
+  }
+
+  .bg-transparency-dark {
+    background-color: rgba(40, 41, 44, 0.5);
+  }
 }
 
 body {
   @apply bg-white dark:bg-black text-black dark:text-white;
 }
-
-/* .sbdocs-preview,
-.sbdocs.sbdocs-wrapper {
-  background: transparent !important;
-} */
