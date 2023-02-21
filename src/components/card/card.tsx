@@ -1,8 +1,7 @@
 import { PencilIcon } from "../icons/pencil";
-import { Heading } from "../typography/heading";
 import { Paragraph } from "../typography/paragraph";
 
-type Icons = "pencil";
+export type Icons = "pencil";
 
 const CardIcon = ({ icon }: { icon: Icons }) => {
   let Icon = null;

@@ -1,4 +1,5 @@
 import React from "react";
+import { FeaturesSection } from "../features-section/feature-section";
 
 import { Header } from "../header/header";
 import { Hero } from "../hero/hero";
@@ -16,9 +17,7 @@ export const Page: React.FC = () => {
 
       <Hero />
 
-      <div className="text-center max-w-screen-lg mx-auto">
-        <Display>Modern python, with modern features</Display>
-      </div>
+      <FeaturesSection />
     </article>
   );
 };
