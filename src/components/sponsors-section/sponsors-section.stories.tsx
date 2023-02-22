@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SponsorsSection } from "./sponsors-section";
 
 const meta: Meta<typeof SponsorsSection> = {
-  title: "Components/SponsorsSection",
+  title: "Sections/Sponsors",
   component: SponsorsSection,
   parameters: {
     layout: "fullscreen",

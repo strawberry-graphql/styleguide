@@ -62,6 +62,10 @@
     background-color: rgba(40, 41, 44, 0.5);
   }
 
+  .bg-blog-card-dark {
+    background-color: rgba(27, 29, 33, 0.75);
+  }
+
   .bg-transparency-light {
     background-color: rgba(255, 255, 255, 0.5);
   }
