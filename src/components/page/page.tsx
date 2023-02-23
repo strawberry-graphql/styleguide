@@ -1,8 +1,10 @@
 import React from "react";
 import { FeaturesSection } from "../features-section/feature-section";
+import { Footer } from "../footer/footer";
 
 import { Header } from "../header/header";
 import { Hero } from "../hero/hero";
+import { Spacer } from "../spacer/spacer";
 import { SponsorsSection } from "../sponsors-section/sponsors-section";
 
 const sponsors = [
@@ -15,7 +17,7 @@ const sponsors = [
 
 export const Page: React.FC = () => {
   return (
-    <article>
+    <>
       <Header
         version={{
           name: "1.0",
@@ -23,11 +25,19 @@ export const Page: React.FC = () => {
         }}
       />
 
+      <Spacer size={80} />
+
       <Hero />
+
+      <Spacer size={128} />
 
       <FeaturesSection />
 
+      <Spacer size={128} />
+
       <SponsorsSection sponsors={sponsors} />
-    </article>
+
+      <Footer />
+    </>
   );
 };

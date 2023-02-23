@@ -110,7 +110,7 @@ const BlogItem = ({
 
 export const BlogSection = () => {
   return (
-    <section className="text-center mt-80">
+    <section className="text-center">
       <div className="px-24">
         <Heading className="mb-24">Updates from the team?</Heading>
 

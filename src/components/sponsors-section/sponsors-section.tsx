@@ -20,7 +20,7 @@ const Sponsor = ({ name, href, logo }: Sponsor) => {
 
 export const SponsorsSection = ({ sponsors }: { sponsors: Sponsor[] }) => {
   return (
-    <section className="text-center mt-80">
+    <section className="text-center">
       <div className="px-24">
         <Heading>Discover the sponsors that make Strawberry possible.</Heading>
 

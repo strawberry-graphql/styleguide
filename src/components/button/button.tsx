@@ -4,7 +4,7 @@ type Props = {
   children: React.ReactNode;
   disabled?: boolean;
   as?: "button" | "a";
-  className: string;
+  className?: string;
   variant?: "primary" | "circle";
 } & (
   | {
