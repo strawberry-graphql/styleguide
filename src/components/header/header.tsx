@@ -83,7 +83,7 @@ export const Header = ({
   return (
     <header className="mx-auto max-w-[1600px] px-40 py-16 grid grid-cols-2 items-center site-header md:flex">
       <div className="flex-1">
-        <Logo />
+        <Logo className="w-[40px] h-[40px] md:w-[67px] md:h-[80px]" />
       </div>
 
       <nav

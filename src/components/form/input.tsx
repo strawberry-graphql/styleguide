@@ -47,6 +47,7 @@ export const Input = ({
             "border-[1.5px] border-g-100 rounded-[30px] px-24 py-12 typography-paragraph-2",
             "placeholder:text-g-500 text-g-700 disabled:text-g-400",
             "hover:gradient-border focus:gradient-border outline-none",
+            "w-full",
             {
               "border-strawberry": error,
               "border-green": success,
