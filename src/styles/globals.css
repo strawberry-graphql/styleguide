@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .gradient-border {
+    background: linear-gradient(white, white) padding-box,
+      linear-gradient(
+          to right,
+          theme("colors.strawberry"),
+          theme("colors.orange")
+        )
+        border-box;
+    border-radius: 30px;
+    border: 1.5px solid transparent;
+  }
+}
+
 @layer components {
   .typography-display {
     @apply font-medium font-display text-display-s md:text-display;
