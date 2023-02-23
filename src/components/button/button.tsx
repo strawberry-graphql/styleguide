@@ -7,7 +7,8 @@ type Props = {
 } & (
   | {
       as: "button";
-      onClick: () => void;
+      onClick?: () => void;
+      type?: "button" | "submit" | "reset";
     }
   | {
       as: "a";

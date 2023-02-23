@@ -19,7 +19,7 @@ export const Input = ({
   ...props
 }: {
   name?: string;
-  id: string;
+  id?: string;
   type?: string;
   placeholder?: string;
   value?: string;
@@ -44,19 +44,20 @@ export const Input = ({
           required={required}
           disabled={disabled}
           className={clsx(
-            "border-[1.5px] border-g-100 rounded-[30px] px-12 py-[6px]",
+            "border-[1.5px] border-g-100 rounded-[30px] px-24 py-12 typography-paragraph-2",
             "placeholder:text-g-500 text-g-700 disabled:text-g-400",
             "hover:gradient-border focus:gradient-border outline-none",
             {
               "border-strawberry": error,
               "border-green": success,
+              "pr-48": icon,
             }
           )}
           {...props}
         />
 
         {icon && (
-          <div className="absolute top-0 right-0 h-full flex items-center px-12 text-g-500">
+          <div className="absolute top-0 right-4 h-full flex items-center px-12 text-g-500">
             {icon}
           </div>
         )}
