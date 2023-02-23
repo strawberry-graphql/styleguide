@@ -55,7 +55,7 @@ export const PostCard = ({
   };
 }) => {
   return (
-    <div className="p-24 border border-g-100 rounded-[16px] bg-transparency-light dark:bg-blog-card-dark dark:border-transparency-light">
+    <div className="h-full flex flex-col p-24 border border-g-100 rounded-[16px] bg-transparency-light dark:bg-blog-card-dark dark:border-transparency-light">
       <header className="mb-24 flex items-center">
         <img
           src={author.profilePicture}
@@ -70,11 +70,11 @@ export const PostCard = ({
       <Heading level={4} className="mb-12">
         {title}
       </Heading>
-      <Paragraph variant="small" className="dark:text-g-400">
+      <Paragraph variant="small" className="dark:text-g-400 mb-24">
         {description}
       </Paragraph>
 
-      <footer className="mt-24 pt-24 border-t border-g-100 dark:border-g-900 flex justify-between">
+      <footer className="mt-auto pt-24 border-t border-g-100 dark:border-g-900 flex justify-between">
         <Label className="text-g-700 dark:text-g-500">Dec 12, 2023</Label>
 
         <div className="flex items-center">
@@ -102,7 +102,7 @@ const BlogItem = ({
   };
 }) => {
   return (
-    <li className="snap-center break-inside-avoid mb-24 w-[400px] lg:w-auto flex-shrink-0 self-stretch flex items-stretch">
+    <li className="mb-24 w-full">
       <PostCard title={title} description={description} author={author} />
     </li>
   );
@@ -112,14 +112,14 @@ export const BlogSection = () => {
   return (
     <section className="text-center mt-80">
       <div className="px-24">
-        <Heading className="mb-24">Updates from the team?`</Heading>
+        <Heading className="mb-24">Updates from the team?</Heading>
 
         <Button as="a" href="/blog">
           View all
         </Button>
       </div>
 
-      <ul className="mt-80 gap-24 text-left overflow-scroll flex snap-x px-24 lg:columns-4 lg:block max-w-screen-xl mx-auto">
+      <ul className="mt-80 gap-24 text-left grid auto-rows-auto md:grid-cols-2 items-stretch px-24 max-w-screen-lg mx-auto">
         <BlogItem
           title="Type hints"
           description="Type hints are a great way to document your code and make it easier to understand. Theyter autocompletion and error detection."
