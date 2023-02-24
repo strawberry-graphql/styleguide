@@ -26,7 +26,7 @@ const PageNavItem = ({ active }: { active?: boolean }) => {
   return (
     <li
       className={clsx(
-        "typography-paragraph-2 font-bold text-g-500 pl-24 my-16",
+        "typography-paragraph-2 font-bold text-g-500 pl-24 pr-12 my-16",
         {
           "text-strawberry relative": active,
         }
@@ -36,7 +36,7 @@ const PageNavItem = ({ active }: { active?: boolean }) => {
         <span className="-left-2 rounded-[3px] top-0 bottom-0 w-3 bg-gradient-to-b from-magenta to-orange block absolute" />
       )}
       <a href="#" className="hover:text-strawberry">
-        Title 1
+      Step 1: Create a new project and install Strawberry
       </a>
     </li>
   );
@@ -44,8 +44,8 @@ const PageNavItem = ({ active }: { active?: boolean }) => {
 
 export const PageNav = () => {
   return (
-    <nav>
-      <ul className="border-l border-g-100">
+    <nav className="">
+      <ul className="sticky top-24 border-l border-g-100">
         <PageNavItem active />
         <PageNavItem />
         <PageNavItem />
