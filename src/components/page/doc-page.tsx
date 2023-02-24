@@ -33,87 +33,92 @@ export const DocumentationPage: React.FC = () => {
 
       <Spacer size={80} />
 
-      <div className="px-40 space-y-8 max-w-[1600px] mx-auto">
-        <Heading>Getting started with Strawberry</Heading>
-        <Paragraph>This tutorial will help you:</Paragraph>
+      <div className="md:grid grid-cols-[320px_1fr]">
+        <div className="w-[320px] hidden md:block bg-strawberry">this it the sidebar</div>
 
-        <List>
-          <ListItem>
-            Obtain a basic understanding of GraphQL principles
-          </ListItem>
-          <ListItem>Define a GraphQL schema using Strawberry</ListItem>
-          <ListItem>
-            Run the Strawberry server that lets you execute queries against your
-            schema
-          </ListItem>
-        </List>
+        <div className="px-40 space-y-8 max-w-[1600px] 2xl:mx-auto 2xl:relative 2xl:-left-[160px] 2lx:bg-pink">
+          <Heading>Getting started with Strawberry</Heading>
+          <Paragraph>This tutorial will help you:</Paragraph>
 
-        <Paragraph>
-          This tutorial assumes that you are familiar with the command line and
-          Python, and that you have a recent version of Python (3.7+) installed.
-        </Paragraph>
+          <List>
+            <ListItem>
+              Obtain a basic understanding of GraphQL principles
+            </ListItem>
+            <ListItem>Define a GraphQL schema using Strawberry</ListItem>
+            <ListItem>
+              Run the Strawberry server that lets you execute queries against
+              your schema
+            </ListItem>
+          </List>
 
-        <Paragraph>
-          Strawberry is built on top of{" "}
-          <Link href="/">Python’s dataclasses</Link> and{" "}
-          <Link href="/">type hints</Link> functionality.
-        </Paragraph>
+          <Paragraph>
+            This tutorial assumes that you are familiar with the command line
+            and Python, and that you have a recent version of Python (3.7+)
+            installed.
+          </Paragraph>
 
-        <Heading level={2} className="!mt-48">
-          Step 1: Create a new project and install Strawberry
-        </Heading>
+          <Paragraph>
+            Strawberry is built on top of{" "}
+            <Link href="/">Python’s dataclasses</Link> and{" "}
+            <Link href="/">type hints</Link> functionality.
+          </Paragraph>
 
-        <Paragraph>Let’s create a new folder:</Paragraph>
+          <Heading level={2} className="!mt-48">
+            Step 1: Create a new project and install Strawberry
+          </Heading>
 
-        <Codebox
-          html={`<pre class="overflow-x-auto p-6"><code class="language-bash"><div data-line="1" class=""><span><span class="token function">mkdir</span> strawberry-demo</span></div><div data-line="2" class=""><span><span class="token builtin class-name">cd</span> strawberry-demo</span></div></code></pre>`}
-        />
+          <Paragraph>Let’s create a new folder:</Paragraph>
 
-        <Paragraph>After that we need a new virtualenv:</Paragraph>
+          <Codebox
+            html={`<pre class="overflow-x-auto p-6"><code class="language-bash"><div data-line="1" class=""><span><span class="token function">mkdir</span> strawberry-demo</span></div><div data-line="2" class=""><span><span class="token builtin class-name">cd</span> strawberry-demo</span></div></code></pre>`}
+          />
 
-        <Codebox
-          html={`<pre class="overflow-x-auto p-6"><code class="language-bash"><div data-line="1" class=""><span><span class="token function">python3</span> -m venv venv</span></div><div data-line="2" class=""><span><span class="token builtin class-name">source</span> venv/bin/activate</span></div></code></pre>`}
-        />
+          <Paragraph>After that we need a new virtualenv:</Paragraph>
 
-        <Paragraph>
-          Activate the virtualenv and then install strawberry plus the debug
-          server.
-        </Paragraph>
+          <Codebox
+            html={`<pre class="overflow-x-auto p-6"><code class="language-bash"><div data-line="1" class=""><span><span class="token function">python3</span> -m venv venv</span></div><div data-line="2" class=""><span><span class="token builtin class-name">source</span> venv/bin/activate</span></div></code></pre>`}
+          />
 
-        <Codebox
-          html={`<pre class="overflow-x-auto p-6"><code class="language-bash"><div data-line="1" class=""><span><span class="token builtin class-name">pip</span> install strawberry</span></div><div data-line="2" class=""><span><span class="token builtin class-name">pip</span> install strawberry-graphql[debug-server]</span></div></code></pre>`}
-        />
+          <Paragraph>
+            Activate the virtualenv and then install strawberry plus the debug
+            server.
+          </Paragraph>
 
-        <Heading level={2} className="!mt-48">
-          Step 2: Define your schema
-        </Heading>
+          <Codebox
+            html={`<pre class="overflow-x-auto p-6"><code class="language-bash"><div data-line="1" class=""><span><span class="token builtin class-name">pip</span> install strawberry</span></div><div data-line="2" class=""><span><span class="token builtin class-name">pip</span> install strawberry-graphql[debug-server]</span></div></code></pre>`}
+          />
 
-        <Paragraph>
-          Every GraphQL server uses a <strong>schema</strong> to define the
-          structure of the data that clients can query. In this example, we will
-          create a server for querying a collection of books by title and
-          author.
-        </Paragraph>
+          <Heading level={2} className="!mt-48">
+            Step 2: Define your schema
+          </Heading>
 
-        <Paragraph>
-          In your favorite editor create a file called <code>schema.py</code>,
-          with the following contents:
-        </Paragraph>
+          <Paragraph>
+            Every GraphQL server uses a <strong>schema</strong> to define the
+            structure of the data that clients can query. In this example, we
+            will create a server for querying a collection of books by title and
+            author.
+          </Paragraph>
 
-        <Codebox html={pythonExample} />
+          <Paragraph>
+            In your favorite editor create a file called <code>schema.py</code>,
+            with the following contents:
+          </Paragraph>
 
-        <Paragraph>
-          This will create a GraphQL schema where clients will be able to
-          execute a query named <code>books</code> that will return a list of
-          zero or more books.
-        </Paragraph>
+          <Codebox html={pythonExample} />
 
-        <Image
-          src="https://github.com/strawberry-graphql/strawberry/raw/main/docs/images/index-server.png"
-          width={1692}
-          height={1269}
-          alt=""
-        />
+          <Paragraph>
+            This will create a GraphQL schema where clients will be able to
+            execute a query named <code>books</code> that will return a list of
+            zero or more books.
+          </Paragraph>
+
+          <Image
+            src="https://github.com/strawberry-graphql/strawberry/raw/main/docs/images/index-server.png"
+            width={1692}
+            height={1269}
+            alt=""
+          />
+        </div>
       </div>
 
       <Spacer size={80} />
