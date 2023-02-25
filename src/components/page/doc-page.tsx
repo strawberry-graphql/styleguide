@@ -27,7 +27,7 @@ const PageNavItem = ({ active }: { active?: boolean }) => {
   return (
     <li
       className={clsx(
-        "typography-paragraph-2 font-bold text-g-500 pl-24 pr-12 my-16",
+        "typography-paragraph-2 font-bold text-g-500 px-24 my-16",
         {
           "text-strawberry relative": active,
         }
@@ -46,7 +46,7 @@ const PageNavItem = ({ active }: { active?: boolean }) => {
 export const PageNav = () => {
   return (
     <nav className="">
-      <ul className="sticky top-24 border-l border-g-100">
+      <ul className="sticky top-24 border-l border-g-100 dark:border-g-900">
         <PageNavItem active />
         <PageNavItem />
         <PageNavItem />
@@ -60,7 +60,7 @@ export const DocumentationPage: React.FC = () => {
     <>
       <Header
         version={{
-          name: "1.0",
+          name: "v1.0",
           href: "/",
         }}
       />

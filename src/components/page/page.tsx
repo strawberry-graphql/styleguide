@@ -20,7 +20,7 @@ export const Page: React.FC = () => {
     <>
       <Header
         version={{
-          name: "1.0",
+          name: "v1.0",
           href: "/",
         }}
       />
