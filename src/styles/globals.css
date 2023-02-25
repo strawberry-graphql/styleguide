@@ -121,6 +121,15 @@
   .bg-transparency-light {
     background-color: rgba(255, 255, 255, 0.5);
   }
+
+  .codebox {
+    overflow: scroll;
+  }
+
+  .codebox pre {
+    @apply px-24 md:px-48 py-32;
+    overflow: visible !important;
+  }
 }
 
 :root {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpIcon } from "../icons/arrow-up";
 
-type Section = {
+export type Section = {
   name: string;
   links: {
     href: string;
