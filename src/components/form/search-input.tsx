@@ -1,40 +1,42 @@
 import clsx from "clsx";
 import { AlertIcon } from "../icons/alert";
 import { CheckIcon } from "../icons/check";
+import { SearchIcon } from "../icons/search";
 import { Caption } from "../typography/caption";
 import { BaseInput } from "./base-input";
 import { ErrorLabel, SuccessLabel } from "./labels";
 
-export const Input = ({
+export const SearchInput = ({
   name,
   id,
-  type = "text",
+
   placeholder,
   value,
   onChange,
   error,
   required,
   disabled,
-  icon,
+  className,
+
   success,
+  ...props
 }: {
   name?: string;
   id?: string;
-  type?: "text" | "email" | "search" | "number";
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
   required?: boolean;
   disabled?: boolean;
+  className?: string;
   success?: string;
-  icon?: React.ReactNode;
 }) => {
   return (
     <div>
       <div className="relative inline-block">
         <BaseInput
-          type={type}
+          type="search"
           id={id}
           placeholder={placeholder}
           value={value}
@@ -42,18 +44,15 @@ export const Input = ({
           onChange={onChange}
           required={required}
           disabled={disabled}
-          className={clsx({
+          className={clsx("pl-48", {
             "border-strawberry": error,
             "border-green": success,
-            "pr-48": icon,
           })}
         />
 
-        {icon && (
-          <div className="absolute top-0 right-4 h-full flex items-center px-12 text-g-500">
-            {icon}
-          </div>
-        )}
+        <div className="absolute top-0 left-4 h-full flex items-center px-12 text-g-500">
+          <SearchIcon />
+        </div>
       </div>
 
       {error && <ErrorLabel>{error}</ErrorLabel>}
