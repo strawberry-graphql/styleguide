@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { Codebox } from "../codebox/codebox";
 import { Footer } from "../footer/footer";
+import { SearchInput } from "../form/search-input";
 
 import { Header } from "../header/header";
 import { Link } from "../link/link";
@@ -36,7 +37,7 @@ const PageNavItem = ({ active }: { active?: boolean }) => {
         <span className="-left-2 rounded-[3px] top-0 bottom-0 w-3 bg-gradient-to-b from-magenta to-orange block absolute" />
       )}
       <a href="#" className="hover:text-strawberry">
-      Step 1: Create a new project and install Strawberry
+        Step 1: Create a new project and install Strawberry
       </a>
     </li>
   );
@@ -67,11 +68,12 @@ export const DocumentationPage: React.FC = () => {
       <Spacer size={80} />
 
       <div className="md:grid grid-cols-[320px_1fr]">
-        <div className="w-[320px] hidden md:block bg-strawberry">
-          this it the sidebar
+        <div className="w-[320px] hidden md:block px-40">
+        <Spacer size={16} />
+          <SearchInput placeholder="Search" />
         </div>
 
-        <div className="max-w-[1600px] 2xl:mx-auto 2xl:relative 2xl:-left-[160px] 2lx:bg-pink md:grid grid-cols-[1fr_140px]">
+        <div className="max-w-[1600px] 2xl:mx-auto 2xl:relative 2xl:-left-[160px] 2lx:bg-pink md:grid grid-cols-[1fr_200px]">
           <div className="px-40 space-y-8">
             <Heading>Getting started with Strawberry</Heading>
             <Paragraph>This tutorial will help you:</Paragraph>
