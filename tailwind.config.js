@@ -115,6 +115,23 @@ const colors = {
       key: "code-orange",
     },
   ],
+  callout: [
+    {
+      name: "Tip",
+      hex: "rgba(142, 210, 135, 0.2)",
+      key: "callout-tip",
+    },
+    {
+      name: "Warning",
+      hex: "rgba(234, 173, 117, 0.2)",
+      key: "callout-warning",
+    },
+    {
+      name: "Note",
+      hex: "rgba(174, 213, 251, 0.2)",
+      key: "callout-note",
+    },
+  ],
 };
 
 const fonts = {
