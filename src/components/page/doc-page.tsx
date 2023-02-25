@@ -9,6 +9,7 @@ import { Header } from "../header/header";
 import { Link } from "../link/link";
 import { List, ListItem } from "../list/list";
 import { MobileNav } from "../mobile-nav/mobile-nav";
+import { SearchBox } from "../search-box/search-box";
 import { SidebarNav } from "../sidebar-nav/sidebar-nav";
 import { Spacer } from "../spacer/spacer";
 import { Heading } from "../typography/heading";
@@ -313,14 +314,15 @@ export const DocumentationPage: React.FC = () => {
 
       <Spacer size={80} />
 
-      <MobileNav sections={sections} />
+      <div className="md:hidden">
+        <MobileNav sections={sections} />
+      </div>
 
       <div className="md:grid grid-cols-[320px_1fr]">
         <div className="w-[320px] hidden md:block px-40">
           <Spacer size={16} />
           <SearchInput placeholder="Search" />
           <Spacer size={40} />
-
           <SidebarNav sections={sections} />
         </div>
 
