@@ -8,6 +8,7 @@ import { SearchInput } from "../form/search-input";
 import { Header } from "../header/header";
 import { Link } from "../link/link";
 import { List, ListItem } from "../list/list";
+import { SidebarNav } from "../sidebar-nav/sidebar-nav";
 import { Spacer } from "../spacer/spacer";
 import { Heading } from "../typography/heading";
 import { Paragraph } from "../typography/paragraph";
@@ -22,6 +23,39 @@ const pythonExample = `<pre class="shiki " style="background-color: transparent"
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">def</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">is_admin</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-parameter)">self</span><span style="color: var(--shiki-color-text)">) </span><span style="color: var(--shiki-token-punctuation)">-&gt;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">bool</span><span style="color: var(--shiki-color-text)">:</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-keyword)">return</span><span style="color: var(--shiki-color-text)"> self</span><span style="color: var(--shiki-token-punctuation)">.</span><span style="color: var(--shiki-color-text)">name </span><span style="color: var(--shiki-token-keyword)">==</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&quot;Patrick&quot;</span></span>
 <span class="line"></span></code></pre>`;
+
+const sections = [
+  {
+    name: "Docs",
+    links: [
+      {
+        href: "/docs",
+        name: "Getting started",
+      },
+    ],
+  },
+  {
+    name: "General",
+    links: [
+      {
+        href: "/abc",
+        name: "Schema basics",
+      },
+      {
+        href: "/abc",
+        name: "Schema basics",
+      },
+      {
+        href: "/abc",
+        name: "Schema basics",
+      },
+      {
+        href: "/abc",
+        name: "Schema basics",
+      },
+    ],
+  },
+];
 
 const PageNavItem = ({ active }: { active?: boolean }) => {
   return (
@@ -69,8 +103,11 @@ export const DocumentationPage: React.FC = () => {
 
       <div className="md:grid grid-cols-[320px_1fr]">
         <div className="w-[320px] hidden md:block px-40">
-        <Spacer size={16} />
+          <Spacer size={16} />
           <SearchInput placeholder="Search" />
+          <Spacer size={40} />
+
+          <SidebarNav sections={sections} />
         </div>
 
         <div className="max-w-[1600px] 2xl:mx-auto 2xl:relative 2xl:-left-[160px] 2lx:bg-pink md:grid grid-cols-[1fr_200px]">
