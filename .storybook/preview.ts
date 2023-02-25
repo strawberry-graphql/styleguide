@@ -1,9 +1,7 @@
 import "../src/styles/globals.css";
 
 import localFont from "@next/font/local";
-import { JetBrains_Mono } from "@next/font/google";
 import { Separator } from "../src/components/separator/separator";
-import { themes } from "@storybook/theming";
 import { ThemedDocsContainer } from "./docs-container";
 
 const ranade = localFont({
@@ -35,8 +33,17 @@ const satoshi = localFont({
   variable: "--font-satoshi",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
+const jetbrainsMono = localFont({
+  src: [
+    {
+      path: "../fonts/JetBrainsMono[wght].ttf",
+      style: "normal",
+    },
+    {
+      path: "../fonts/JetBrainsMono-Italic[wght].ttf",
+      style: "italic",
+    },
+  ],
   variable: "--font-jetbrains-mono",
 });
 
