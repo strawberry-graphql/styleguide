@@ -27,11 +27,28 @@
     border-radius: 30px;
     border: 1.5px solid transparent;
   }
+
+  .gradient-border-dark-footer {
+    background: linear-gradient(rgba(27, 29, 33, 1), rgba(27, 29, 33, 1))
+        padding-box,
+      linear-gradient(
+          to right,
+          theme("colors.strawberry"),
+          theme("colors.orange")
+        )
+        border-box;
+    border-radius: 30px;
+    border: 1.5px solid transparent;
+  }
 }
 
 @layer components {
   .input-border {
     @apply hover:gradient-border focus:gradient-border dark:hover:gradient-border-dark dark:focus:gradient-border-dark;
+  }
+
+  .dark\:bg-footer-dark .input-border {
+    @apply dark:hover:gradient-border-dark-footer dark:focus:gradient-border-dark-footer;
   }
 
   .typography-display {
