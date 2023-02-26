@@ -124,6 +124,7 @@
 
   .codebox {
     overflow: scroll;
+    @apply flex;
   }
 
   .codebox pre {
