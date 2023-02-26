@@ -156,3 +156,12 @@
 body {
   @apply bg-white dark:bg-black text-black dark:text-white;
 }
+
+mark {
+  @apply text-strawberry underline bg-transparent;
+}
+
+.selected mark {
+  color: inherit;
+  text-decoration: none;
+}

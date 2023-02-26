@@ -1,6 +1,24 @@
+"use client";
+
 import clsx from "clsx";
 import { SearchIcon } from "../icons/search";
 import { Paragraph } from "../typography/paragraph";
+
+import { Combobox } from "@headlessui/react";
+import algoliasearch from "algoliasearch/lite";
+import {
+  InstantSearch,
+  useSearchBox,
+  Configure,
+} from "react-instantsearch-hooks-web";
+
+import { useGroupedResults } from "./use-grouped-results";
+import { Result } from "./result";
+
+const searchClient = algoliasearch(
+  "HTUQW2U430",
+  "bccc4f8ec45c035730f43b9443f099a6"
+);
 
 const AlgoliaLogo = () => (
   <svg
@@ -75,35 +93,84 @@ const AlgoliaLogo = () => (
   </svg>
 );
 
+const Inner = () => {
+  const { query, refine, clear } = useSearchBox();
+
+  const { groups } = useGroupedResults();
+
+  return (
+    <Combobox>
+      <div
+        className={clsx(
+          "border border-g-100 rounded-[16px]",
+          "bg-white bg-opacity-75 backdrop-blur-md",
+          "dark:bg-footer-dark dark:border-transparency-light dark:backdrop-blur-md"
+        )}
+      >
+        <header className="flex items-center px-24">
+          <SearchIcon />
+
+          <Combobox.Input
+            type="search"
+            className="ml-16 flex-1 py-24 typography-paragraph-2 text-g-500 dark:text-g-700 outline-none bg-transparent"
+            placeholder="Search documentation"
+            onChange={(event) => refine(event.target.value)}
+          />
+        </header>
+
+        <div className="min-h-[140px] flex justify-center items-center text-g-700 border-t border-b border-g-100 dark:border-transparency-light">
+          <div className="flex-1 py-32 px-24">
+            <Combobox.Options>
+              {groups.map((group) => {
+                return (
+                  <div key={group.name} className="mb-32">
+                    <Paragraph className="font-bold mb-16">
+                      {group.name}
+                    </Paragraph>
+
+                    <ul className="space-y-8">
+                      {group.results.map((result) => {
+                        return (
+                          <Combobox.Option key={result.id} value={result.id}>
+                            {({ active, selected }) => (
+                              <Result
+                                active={active}
+                                selected={selected}
+                                result={result}
+                              />
+                            )}
+                          </Combobox.Option>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                );
+              })}
+            </Combobox.Options>
+          </div>
+        </div>
+
+        {/* <Combobox.Options className="min-h-[140px] flex justify-center items-center text-g-700 border-t border-b border-g-100 dark:border-transparency-light">
+    <Paragraph>No recent searches</Paragraph>
+  </Combobox.Options> */}
+
+        <footer className="p-24 flex justify-end items-center space-x-16">
+          <Paragraph variant="small">Search by</Paragraph>
+          <a href="/todo">
+            <AlgoliaLogo />
+          </a>
+        </footer>
+      </div>
+    </Combobox>
+  );
+};
+
 export const SearchBox = () => {
   return (
-    <div
-      className={clsx(
-        "border border-g-100 rounded-[16px]",
-        "bg-white bg-opacity-75 backdrop-blur-md",
-        "dark:bg-footer-dark dark:border-transparency-light dark:backdrop-blur-md"
-      )}
-    >
-      <header className="flex items-center px-24">
-        <SearchIcon />
+    <InstantSearch searchClient={searchClient} indexName="strawberry">
+      <Configure hitsPerPage={10} distinct />
 
-        <input
-          type="search"
-          className="ml-16 flex-1 py-24 typography-paragraph-2 text-g-500 dark:text-g-700 outline-none bg-transparent"
-          placeholder="Search documentation"
-        />
-      </header>
-
-      <div className="min-h-[140px] flex justify-center items-center text-g-700 border-t border-b border-g-100 dark:border-transparency-light">
-        <Paragraph>No recent searches</Paragraph>
-      </div>
-
-      <footer className="p-24 flex justify-end items-center space-x-16">
-        <Paragraph variant="small">Search by</Paragraph>
-        <a href="/todo">
-          <AlgoliaLogo />
-        </a>
-      </footer>
-    </div>
+      <Inner />
+    </InstantSearch>
   );
 };
