@@ -25,5 +25,6 @@ export const WithTitle: Story = {
     children: "Hello world",
     open: true,
     title: "Hello world",
+    label: "Example label",
   },
 };

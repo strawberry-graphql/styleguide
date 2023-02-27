@@ -1,6 +1,7 @@
 import React from "react";
 import { FeaturesSection } from "../features-section/feature-section";
 import { Footer } from "../footer/footer";
+import { GlowEffect } from "../glow-effect/glow-effect";
 
 import { Header } from "../header/header";
 import { Hero } from "../hero/hero";
@@ -18,6 +19,7 @@ const sponsors = [
 export const Page: React.FC = () => {
   return (
     <>
+      <GlowEffect />
       <Header
         version={{
           name: "v1.0",
