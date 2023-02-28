@@ -12,9 +12,9 @@ const Arrow = () => (
     <path
       d="M1 13L7 7L1 1"
       className="stroke-current"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

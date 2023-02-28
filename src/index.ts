@@ -1,1 +1,16 @@
 export { Header } from "./components/header/header";
+export { Footer } from "./components/footer/footer";
+export { Hero } from "./components/hero/hero";
+export { Spacer } from "./components/spacer/spacer";
+export { FeaturesSection } from "./components/features-section/features-section";
+export { SponsorsSection } from "./components/sponsors-section/sponsors-section";
+export { GlowEffect } from "./components/glow-effect/glow-effect";
+export { MobileNav } from "./components/mobile-nav/mobile-nav";
+export { Paragraph } from "./components/typography/paragraph";
+export { SearchInput } from "./components/form/search-input";
+export { SidebarNav } from "./components/sidebar-nav/sidebar-nav";
+export { Codebox } from "./components/codebox/codebox";
+export { Heading } from "./components/typography/heading";
+export { List } from "./components/list/list";
+export { ListItem } from "./components/list/list";
+export { Link } from "./components/link/link";

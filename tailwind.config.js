@@ -1,5 +1,6 @@
 // @ts-check
 /** @type {import('tailwindcss').Config} */
+// @ts-ignore
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const colors = {
@@ -270,7 +271,9 @@ const themeFontSizes = Object.fromEntries(
     typography.flatMap((typography) => {
       const result = [[typography.key, typography.size]];
 
+      // @ts-ignore
       if (typography.small) {
+        // @ts-ignore
         result.push([`${typography.key}-s`, typography.small.size]);
       }
 

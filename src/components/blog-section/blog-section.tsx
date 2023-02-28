@@ -17,14 +17,14 @@ const Arrow = () => (
     <path
       d="M5 12H19"
       stroke="url(#bg-gradient)"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M12 5L19 12L12 19"
       stroke="url(#bg-gradient)"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <defs>
       <linearGradient

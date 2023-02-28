@@ -1,15 +1,14 @@
 {
-  "name": "styleguide",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@strawberry-graphql/styleguide",
+  "version": "0.1.10",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "storybook": "storybook dev -p 6006 --no-open",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc && cp package.json README.md ./dist && tailwind --input ./src/styles/globals.css --output dist/index.css",
+    "dev": "storybook dev -p 6006 --no-open",
+    "publish:local": "npm run build && yalc publish",
     "build-storybook": "storybook build"
   },
+  "main": "dist/index.js",
   "dependencies": {
     "@headlessui/react": "^1.7.12",
     "@next/font": "13.1.6",

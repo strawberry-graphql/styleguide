@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "declaration": true,
+    "esModuleInterop": true,
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -22,8 +22,23 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "outDir": "dist"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/colors/colors.stories.msx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "tailwind.config.js",
+    // these files are using tailwind.config.js, which makes so that the dist
+    // folder nests everything inside the src folder, which is not what we want
+    // see https://stackoverflow.com/a/58941798/169274
+    "src/components/typography/font-styles.tsx",
+    "src/components/colors/color-list.tsx"
+  ]
 }

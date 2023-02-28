@@ -6,16 +6,16 @@ export const PlusIcon = (props: React.SVGProps<SVGSVGElement>) => {
       <path
         d="M8.67856 1.67859V15.6786"
         className="stroke-current"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1.67856 8.67859H15.6786"
         className="stroke-current"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

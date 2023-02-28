@@ -1,5 +1,5 @@
 import React from "react";
-import { FeaturesSection } from "../features-section/feature-section";
+import { FeaturesSection } from "../features-section/features-section";
 import { Footer } from "../footer/footer";
 import { GlowEffect } from "../glow-effect/glow-effect";
 
