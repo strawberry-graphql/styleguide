@@ -165,3 +165,12 @@ mark {
   color: inherit;
   text-decoration: none;
 }
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
