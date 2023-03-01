@@ -26,7 +26,9 @@ export const Hero = () => {
       </Button>
 
       <div className="text-left mx-auto max-w-2xl">
-        <Codebox html={code} />
+        <Codebox>
+          <code dangerouslySetInnerHTML={{ __html: code }} />
+        </Codebox>
       </div>
     </div>
   );

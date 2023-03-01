@@ -360,24 +360,31 @@ export const DocumentationPage: React.FC = () => {
 
             <Paragraph>Let’s create a new folder:</Paragraph>
 
-            <Codebox
-              html={`<pre class="overflow-x-auto p-6"><code class="language-bash"><div data-line="1" class=""><span><span class="token function">mkdir</span> strawberry-demo</span></div><div data-line="2" class=""><span><span class="token builtin class-name">cd</span> strawberry-demo</span></div></code></pre>`}
-            />
+            <Codebox>
+              <pre className="overflow-x-auto p-6">
+                <code className="language-bash">
+                  <div data-line="1" className="">
+                    <span>
+                      <span className="token function">mkdir</span>{" "}
+                      strawberry-demo
+                    </span>
+                  </div>
+                  <div data-line="2" className="">
+                    <span>
+                      <span className="token builtin class-name">cd</span>{" "}
+                      strawberry-demo
+                    </span>
+                  </div>
+                </code>
+              </pre>
+            </Codebox>
 
             <Paragraph>After that we need a new virtualenv:</Paragraph>
-
-            <Codebox
-              html={`<pre class="overflow-x-auto p-6"><code class="language-bash"><div data-line="1" class=""><span><span class="token function">python3</span> -m venv venv</span></div><div data-line="2" class=""><span><span class="token builtin class-name">source</span> venv/bin/activate</span></div></code></pre>`}
-            />
 
             <Paragraph>
               Activate the virtualenv and then install strawberry plus the debug
               server.
             </Paragraph>
-
-            <Codebox
-              html={`<pre class="overflow-x-auto p-6"><code class="language-bash"><div data-line="1" class=""><span><span class="token builtin class-name">pip</span> install strawberry</span></div><div data-line="2" class=""><span><span class="token builtin class-name">pip</span> install strawberry-graphql[debug-server]</span></div></code></pre>`}
-            />
 
             <Heading level={2} className="!mt-48">
               Step 2: Define your schema
@@ -394,8 +401,6 @@ export const DocumentationPage: React.FC = () => {
               In your favorite editor create a file called{" "}
               <code>schema.py</code>, with the following contents:
             </Paragraph>
-
-            <Codebox html={pythonExample} />
 
             <Paragraph>
               This will create a GraphQL schema where clients will be able to

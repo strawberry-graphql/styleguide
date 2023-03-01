@@ -35,13 +35,13 @@ const graphqlExample = `
 
 export const Default: Story = {
   args: {
-    html: pythonExample,
+    children: <code dangerouslySetInnerHTML={{ __html: pythonExample }} />,
   },
 };
 
 export const GraphQL: Story = {
   name: "GraphQL",
   args: {
-    html: graphqlExample,
+    children: <code dangerouslySetInnerHTML={{ __html: graphqlExample }} />,
   },
 };
