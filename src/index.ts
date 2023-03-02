@@ -10,6 +10,7 @@ export { Paragraph } from "./components/typography/paragraph";
 export { SearchInput } from "./components/form/search-input";
 export { SidebarNav } from "./components/sidebar-nav/sidebar-nav";
 export { Codebox } from "./components/codebox/codebox";
+export { SideBySide } from "./components/codebox/side-by-side";
 export { Code } from "./components/typography/code";
 export { Heading } from "./components/typography/heading";
 export { List } from "./components/list/list";
