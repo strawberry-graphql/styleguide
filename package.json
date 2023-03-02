@@ -1,11 +1,11 @@
 {
   "name": "@strawberry-graphql/styleguide",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && tsc && cp package.json README.md ./dist && tailwind --input ./src/styles/globals.css --output dist/index.css",
     "dev": "storybook dev -p 6006 --no-open",
-    "publish:local": "pnpm version patch && npm run build && yalc publish --push",
+    "publish:local": "pnpm version patch --force && npm run build && yalc publish --push",
     "build-storybook": "storybook build"
   },
   "main": "dist/index.js",
