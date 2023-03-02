@@ -17,4 +17,4 @@ export { ListItem } from "./components/list/list";
 export { Link } from "./components/link/link";
 export { Separator } from "./components/separator/separator";
 export { PageTOC } from "./components/page-toc/page-toc";
-export { DocsContent } from "./components/docs-content/docs-content";
+export { DocsContent, DocsWrapper } from "./components/docs/docs";
