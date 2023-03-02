@@ -33,6 +33,7 @@ export const NewsletterForm = () => {
           name="email"
           type="email"
           required
+          className="sm:w-[280px]"
           icon={<UserIcon />}
         />
 

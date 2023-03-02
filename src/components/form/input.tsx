@@ -17,6 +17,7 @@ export const Input = ({
   disabled,
   icon,
   success,
+  className,
 }: {
   name?: string;
   id?: string;
@@ -29,6 +30,7 @@ export const Input = ({
   disabled?: boolean;
   success?: string;
   icon?: React.ReactNode;
+  className?: string;
 }) => {
   return (
     <div>
@@ -42,7 +44,7 @@ export const Input = ({
           onChange={onChange}
           required={required}
           disabled={disabled}
-          className={clsx({
+          className={clsx(className, {
             "border-strawberry": error,
             "border-green": success,
             "pr-48": icon,
