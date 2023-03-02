@@ -17,6 +17,7 @@ const sections = [
       {
         href: "/docs",
         name: "Getting started",
+        active: true,
       },
     ],
   },

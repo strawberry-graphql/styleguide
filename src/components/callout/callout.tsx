@@ -111,7 +111,7 @@ export const Callout = ({
   return (
     <div
       className={clsx(
-        "p-24 rounded-[16px] border-2 typography-paragraph-2",
+        "callout p-24 rounded-[16px] border-2 typography-paragraph-2",
         {
           "border-code-green bg-callout-tip": type == "tip",
           "border-code-blue bg-callout-note": type == "note",

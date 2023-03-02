@@ -19,7 +19,10 @@ export const Link = ({
       href={href}
       rel={rel}
       target={target}
-      className={clsx("underline text-strawberry hover:opacity-70", className)}
+      className={clsx(
+        "underline decoration-strawberry font-bold text-g-900 dark:text-g-400",
+        className
+      )}
     >
       {children}
     </NextLink>

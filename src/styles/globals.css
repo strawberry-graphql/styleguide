@@ -141,7 +141,11 @@
   }
 
   .docs-content .codebox {
-    margin: 32px 0!important;
+    margin: 32px 0 !important;
+  }
+
+  .docs-content .callout {
+    margin: 24px 0 !important;
   }
 }
 

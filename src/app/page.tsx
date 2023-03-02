@@ -11,9 +11,6 @@ const graphqlQuery = `query {
 }`;
 
 export default async function Home() {
-  const html = await highlight(graphqlQuery, "graphql");
-  console.log(html);
-
   return (
     <article>
       <Header
