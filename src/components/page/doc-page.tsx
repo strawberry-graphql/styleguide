@@ -9,6 +9,7 @@ import { Header } from "../header/header";
 import { Link } from "../link/link";
 import { List, ListItem } from "../list/list";
 import { MobileNav } from "../mobile-nav/mobile-nav";
+import { PageTOC } from "../page-toc/page-toc";
 import { SearchBox } from "../search-box/search-box";
 import { SidebarNav } from "../sidebar-nav/sidebar-nav";
 import { Spacer } from "../spacer/spacer";
@@ -270,38 +271,6 @@ const sections = [
   },
 ];
 
-const PageNavItem = ({ active }: { active?: boolean }) => {
-  return (
-    <li
-      className={clsx(
-        "typography-paragraph-2 font-bold text-g-500 px-24 my-16",
-        {
-          "text-strawberry relative": active,
-        }
-      )}
-    >
-      {active && (
-        <span className="-left-2 rounded-[3px] top-0 bottom-0 w-3 bg-gradient-to-b from-magenta to-orange block absolute" />
-      )}
-      <a href="#" className="hover:text-strawberry">
-        Step 1: Create a new project and install Strawberry
-      </a>
-    </li>
-  );
-};
-
-export const PageNav = () => {
-  return (
-    <nav className="hidden md:block">
-      <ul className="sticky top-24 border-l border-g-100 dark:border-g-900">
-        <PageNavItem active />
-        <PageNavItem />
-        <PageNavItem />
-      </ul>
-    </nav>
-  );
-};
-
 export const DocumentationPage: React.FC = () => {
   return (
     <>
@@ -326,7 +295,7 @@ export const DocumentationPage: React.FC = () => {
           <SidebarNav sections={sections} />
         </div>
 
-        <div className="max-w-[1600px] 2xl:mx-auto 2xl:relative 2xl:-left-[160px] 2lx:bg-pink md:grid grid-cols-[1fr_200px]">
+        <div className="max-w-[1600px] 2xl:mx-auto 2xl:relative 2xl:-left-[160px] 2lx:bg-pink md:grid grid-cols-[minmax(0,1fr)_200px]">
           <div className="px-16 sm:px-40 space-y-8">
             <Heading>Getting started with Strawberry</Heading>
             <Paragraph>This tutorial will help you:</Paragraph>
@@ -416,7 +385,7 @@ export const DocumentationPage: React.FC = () => {
             />
           </div>
 
-          <PageNav />
+          <PageTOC items={[]} />
         </div>
       </div>
 

@@ -4,6 +4,7 @@ export const Heading = ({
   children,
   className,
   level = 1,
+  ...props
 }: {
   children: React.ReactNode;
   className?: string;
@@ -13,7 +14,9 @@ export const Heading = ({
 
   return (
     <Tag
+      {...props}
       className={clsx(
+        "[&>a]:no-underline [&>a]:text-inherit",
         {
           "typography-heading-1": level === 1,
           "typography-heading-2": level === 2,

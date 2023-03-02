@@ -1,3 +1,4 @@
+import React from "react";
 import { fonts, typography } from "../../../tailwind.config";
 
 import { Display } from "./display";
@@ -82,6 +83,21 @@ export const Headings = () => {
         <Style caption={getCaption(fontStyle)} key={fontStyle.name}>
           {/* @ts-ignore */}
           <Heading level={index + 1}>{fontStyle.name}</Heading>
+        </Style>
+      ))}
+    </Grid>
+  );
+};
+
+export const HeadingsWithLinks = () => {
+  return (
+    <Grid rows={typography.heading.length / 2}>
+      {typography.heading.map((fontStyle, index) => (
+        <Style caption={getCaption(fontStyle)} key={fontStyle.name}>
+          {/* @ts-ignore */}
+          <Heading level={index + 1}>
+            <a href="#example">{fontStyle.name}</a>
+          </Heading>
         </Style>
       ))}
     </Grid>
