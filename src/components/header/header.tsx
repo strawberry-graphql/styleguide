@@ -63,11 +63,13 @@ const VerticalSeparator = () => {
 
 export const Header = ({
   version,
+  activeSection,
 }: {
   version: {
     name: string;
     href: string;
   };
+  activeSection?: string;
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -107,7 +109,7 @@ export const Header = ({
 
         <ul className="w-full md:flex md:space-x-56 md:w-auto">
           <li>
-            <Link href="/docs" active>
+            <Link href="/docs" active={activeSection == "docs"}>
               Docs
             </Link>
           </li>
