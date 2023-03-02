@@ -131,6 +131,14 @@
     @apply px-24 md:px-48 py-32;
     overflow: visible !important;
   }
+
+  .docs-content {
+    @apply px-16 sm:px-40 space-y-8;
+  }
+
+  .docs-content :is(h1, h2, h3, h4, h5, h6) {
+    margin: 0.67em 0!important;
+  }
 }
 
 :root {
