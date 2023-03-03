@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Heading } from "../typography/heading";
 
 import { PageTOC } from "./page-toc";
 
@@ -12,19 +13,28 @@ type Story = StoryObj<typeof PageTOC>;
 
 export const Default: Story = {
   args: {
-    items: [
-      {
-        id: "abc",
-        title: "ABC",
-      },
-      {
-        id: "def",
-        title: "Example 123",
-      },
-      {
-        id: "ghi",
-        title: "Example 456",
-      },
-    ],
+    items: new Array(20).fill(0).map((_, i) => ({
+      id: `section-${i}`,
+      title: `Section ${i}`,
+    })),
   },
+  render: (args) => (
+    <div className="grid grid-cols-2">
+      <div>
+        {args.items.map((item) => (
+          <div key={item.id} id={item.id}>
+            <Heading>{item.title}</Heading>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              recusandae odit reiciendis iste, culpa corporis corrupti, minus
+              fuga quisquam quae fugiat ab dolor ea inventore. Maxime ipsam quae
+              labore veritatis.
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <PageTOC {...args} />
+    </div>
+  ),
 };

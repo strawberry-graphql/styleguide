@@ -9,6 +9,7 @@ export const Heading = ({
   children: React.ReactNode;
   className?: string;
   level?: 1 | 2 | 3 | 4;
+  id?: string;
 }) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
 
