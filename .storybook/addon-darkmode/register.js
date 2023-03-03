@@ -9,32 +9,36 @@ import {
 import { Icons, IconButton } from "@storybook/components";
 
 import { themes } from "@storybook/theming";
+import { useState } from "react";
 
-const TOOL_ID = "ABC";
-const ADDON_ID = "ABC";
+const TOOL_ID = "StrawberryDarkMode";
+const ADDON_ID = "StrawberryDarkMode";
+
+const getHTMLElement = () => {
+  const iframe = document.getElementById("storybook-preview-iframe");
+
+  if (!iframe) {
+    return;
+  }
+
+  const iframeDocument =
+    iframe.contentDocument || iframe.contentWindow?.document;
+
+  return iframeDocument?.documentElement;
+};
 
 const Tool = () => {
   const api = useStorybookApi();
 
-  const toggleDarkMode = useCallback(() => {
-    const iframe = document.getElementById("storybook-preview-iframe");
+  const [isDark, setIsDark] = useState(false);
 
-    if (!iframe) {
-      return;
-    }
-
-    const iframeDocument =
-      iframe.contentDocument || iframe.contentWindow?.document;
-
-    const html = iframeDocument?.getElementsByTagName("html")[0];
-
-    if (!html) {
-      return;
-    }
-
-    const isDark = !html.classList.contains("dark");
+  const handler = useCallback((event) => {
+    const html = getHTMLElement();
+    const isDark = event.detail.isDark;
+    setIsDark(isDark);
 
     if (isDark) {
+      html.classList.add("dark");
       addons.setConfig({
         theme: themes.dark,
         docs: {
@@ -42,6 +46,7 @@ const Tool = () => {
         },
       });
     } else {
+      html.classList.remove("dark");
       addons.setConfig({
         theme: themes.light,
         docs: {
@@ -49,10 +54,25 @@ const Tool = () => {
         },
       });
     }
+  }, []);
 
-    html.classList.toggle("dark");
+  useEffect(() => {
+    window.addEventListener("toggle-theme", handler);
 
-    // trigger event to update storybook
+    return function cleanup() {
+      window.removeEventListener("toggle-theme", handler);
+    };
+  }, []);
+
+  const toggleDarkMode = useCallback(() => {
+    const html = getHTMLElement();
+
+    if (!html) {
+      return;
+    }
+
+    const isDark = !html.classList.contains("dark");
+
     const event = new CustomEvent("toggle-theme", {
       detail: {
         isDark,
@@ -62,20 +82,10 @@ const Tool = () => {
     window.dispatchEvent(event);
   });
 
-  // useEffect(() => {
-  //   api.setAddonShortcut(ADDON_ID, {
-  //     label: "Toggle Dark Mode [D]",
-  //     defaultShortcut: ["D"],
-  //     actionName: "measure",
-  //     showInMenu: false,
-  //     action: toggleDarkMode,
-  //   });
-  // }, [toggleDarkMode, api]);
-
   return (
     <IconButton
       key={TOOL_ID}
-      active={true}
+      active={isDark}
       title="Toggle Dark Mode"
       onClick={toggleDarkMode}
     >

@@ -1,3 +1,4 @@
+import { DarkModeScript } from "@/components/dark-mode/dark-mode";
 import { Header } from "@/components/header/header";
 import { Hero } from "@/components/hero/hero";
 import { highlight } from "@/lib/shiki";

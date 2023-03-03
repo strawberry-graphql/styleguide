@@ -1,4 +1,5 @@
 import React from "react";
+import { DarkModeScript } from "../dark-mode/dark-mode";
 import { FeaturesSection } from "../features-section/features-section";
 import { Footer } from "../footer/footer";
 import { GlowEffect } from "../glow-effect/glow-effect";
@@ -19,6 +20,7 @@ const sponsors = [
 export const Page: React.FC = () => {
   return (
     <>
+      <DarkModeScript />
       <GlowEffect />
       <Header
         version={{

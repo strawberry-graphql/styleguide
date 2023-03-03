@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import { useState } from "react";
+import { DarkModeToggle } from "../dark-mode/dark-mode";
 import { MenuIcon } from "../icons/menu";
 import { MenuCloseIcon } from "../icons/menu-close";
 import { MoonIcon } from "../icons/moon";
@@ -77,11 +78,6 @@ export const Header = ({
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleDarkMode = () => {
-    const html = document.querySelector("html");
-    html?.classList.toggle("dark");
-  };
-
   return (
     <header
       className={clsx(
@@ -135,8 +131,7 @@ export const Header = ({
         </div>
 
         <div className="mt-auto pb-40 order-3 self-center md:-order-none md:mt-0 md:pb-0">
-          <MoonIcon className="dark:hidden" onClick={toggleDarkMode} />
-          <SunIcon className="hidden dark:block" onClick={toggleDarkMode} />
+          <DarkModeToggle />
         </div>
       </nav>
 
