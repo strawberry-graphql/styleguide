@@ -21,7 +21,9 @@ export default meta;
 type Story = StoryObj<typeof Header>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    activeSection: "docs",
+  },
 };
 
 export const PR: Story = {
