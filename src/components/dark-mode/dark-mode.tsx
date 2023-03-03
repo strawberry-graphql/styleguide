@@ -1,18 +1,9 @@
 "use client";
 
 import Script from "next/script";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MoonIcon } from "../icons/moon";
 import { SunIcon } from "../icons/sun";
-
-//   // Whenever the user explicitly chooses light mode
-//   localStorage.theme = 'light'
-
-//   // Whenever the user explicitly chooses dark mode
-//   localStorage.theme = 'dark'
-
-//   // Whenever the user explicitly chooses to respect the OS preference
-//   localStorage.removeItem('theme')
 
 const scriptCode = `
 if (
