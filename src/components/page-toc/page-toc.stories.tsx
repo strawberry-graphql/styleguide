@@ -24,12 +24,14 @@ export const Default: Story = {
         {args.items.map((item) => (
           <div key={item.id} id={item.id}>
             <Heading>{item.title}</Heading>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-              recusandae odit reiciendis iste, culpa corporis corrupti, minus
-              fuga quisquam quae fugiat ab dolor ea inventore. Maxime ipsam quae
-              labore veritatis.
-            </p>
+            {new Array(20).fill(0).map((_, i) => (
+              <p key={i}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+                recusandae odit reiciendis iste, culpa corporis corrupti, minus
+                fuga quisquam quae fugiat ab dolor ea inventore. Maxime ipsam
+                quae labore veritatis.
+              </p>
+            ))}
           </div>
         ))}
       </div>

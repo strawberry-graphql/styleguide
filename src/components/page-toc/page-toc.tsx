@@ -47,6 +47,12 @@ export const PageTOC = ({
     }, {} as Record<string, boolean>)
   );
 
+  // we store the previous visible item in state so that we can highlight the
+  // corresponding nav item when the user scrolls up or if the current section
+  // is too long as we are usually using the id of the heading
+  const [prevVisibleItem, setPrevVisibleItem] = useState(items[0]);
+  const firstVisibleItem = items.find((item) => itemVisibility[item.id]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -70,7 +76,11 @@ export const PageTOC = ({
     });
   }, [selector]);
 
-  const firstVisibleItem = items.find((item) => itemVisibility[item.id]);
+  useEffect(() => {
+    if (firstVisibleItem) {
+      setPrevVisibleItem(firstVisibleItem);
+    }
+  }, [firstVisibleItem]);
 
   return (
     <nav className="hidden md:block">
@@ -80,7 +90,7 @@ export const PageTOC = ({
             key={item.id}
             id={item.id}
             title={item.title}
-            active={firstVisibleItem?.id === item.id}
+            active={item.id === prevVisibleItem.id}
           />
         ))}
       </ul>
