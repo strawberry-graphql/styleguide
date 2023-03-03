@@ -1,60 +1,59 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 export const GlowEffect = () => {
-  const [rotation, setRotation] = useState(0);
+  const svgRef = useRef<SVGSVGElement>(null);
 
-  // on mouse move update the rotation
-  const handleMouseMove = (e: MouseEvent) => {
-    const { clientY } = e;
-    const { innerWidth, innerHeight } = window;
+  const [width, height] = [672, 557];
 
-    const y = clientY - innerHeight / 2;
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (!svgRef.current) return;
 
-    setRotation(-(y / innerHeight) * 20);
-  };
+      const { clientX, clientY } = e;
+
+      const top = clientY - height / 2;
+      const left = clientX - width / 2;
+
+      svgRef.current.animate(
+        {
+          transform: `translate(${left}px, ${top}px)`,
+        },
+        { duration: 3000, fill: "forwards",
+      easing: "ease-in-out" }
+      );
+    },
+    [width, height]
+  );
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
+    if (svgRef.current && "animate" in svgRef.current) {
+      window.addEventListener("mousemove", handleMouseMove);
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
+    }
+  }, [handleMouseMove]);
 
   return (
     <div className="fixed inset-0 -z-10">
       <svg
-        width="1440"
-        height="940"
-        viewBox="0 0 1440 940"
+        ref={svgRef}
+        width="672"
+        height="557"
+        viewBox="0 0 672 557"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{
-          transform: `rotate(${rotation}deg)`,
-        }}
+        className="absolute left-0 top-0"
       >
-        <g opacity="0.2">
-          <path
-            d="M235.836 419.277C361.95 349.597 531.959 354.812 554.784 396.123C516.635 431.696 446.277 513.593 470.034 556.591C499.731 610.34 685.133 429.63 744.281 536.683C803.429 643.736 367.129 802.464 247.524 811.147L-26.7232 831.055C-201.903 843.772 -86.5846 813.684 -139.621 626.72C-192.657 439.756 109.721 488.956 235.836 419.277Z"
-            fill="#F7393D"
-          />
-          <path
-            d="M235.836 419.277C361.95 349.597 531.959 354.812 554.784 396.123C516.635 431.696 446.277 513.593 470.034 556.591C499.731 610.34 685.133 429.63 744.281 536.683C803.429 643.736 367.129 802.464 247.524 811.147L-26.7232 831.055C-201.903 843.772 -86.5846 813.684 -139.621 626.72C-192.657 439.756 109.721 488.956 235.836 419.277Z"
-            stroke="black"
-          />
-        </g>
-        <g opacity="0.2">
-          <path
-            d="M949.713 239.714C949.713 150.755 1065.98 60.4378 1129.21 60.4378C1146.21 91.6754 1196.66 154.15 1262.47 154.15C1344.74 154.15 1252.95 0 1416.81 0C1580.67 0 1484.12 283.175 1416.81 350.404L1262.47 504.554C1163.89 603.02 1203.32 531.717 949.713 504.554C696.109 477.391 949.713 328.673 949.713 239.714Z"
-            fill="#F7393D"
-          />
-          <path
-            d="M949.713 239.714C949.713 150.755 1065.98 60.4378 1129.21 60.4378C1146.21 91.6754 1196.66 154.15 1262.47 154.15C1344.74 154.15 1252.95 0 1416.81 0C1580.67 0 1484.12 283.175 1416.81 350.404L1262.47 504.554C1163.89 603.02 1203.32 531.717 949.713 504.554C696.109 477.391 949.713 328.673 949.713 239.714Z"
-            stroke="black"
-          />
-        </g>
+        <path
+          opacity="0.2"
+          d="M113.713 240.714C113.713 151.755 229.977 61.4378 293.208 61.4378C310.206 92.6754 360.657 155.15 426.472 155.15C508.74 155.15 416.953 1 580.81 1C744.667 1 648.121 284.175 580.81 351.404L426.472 505.554C327.885 604.02 367.318 532.717 113.713 505.554C-139.891 478.391 113.713 329.673 113.713 240.714Z"
+          fill="#F7393D"
+          stroke="black"
+        />
       </svg>
 
       <div className="absolute inset-0 backdrop-blur-[200px]"></div>
