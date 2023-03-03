@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 export const GlowEffect = () => {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -17,11 +17,12 @@ export const GlowEffect = () => {
       const left = clientX - width / 2;
 
       svgRef.current.animate(
+        { transform: `translate(${left}px, ${top}px)` },
         {
-          transform: `translate(${left}px, ${top}px)`,
-        },
-        { duration: 3000, fill: "forwards",
-      easing: "ease-in-out" }
+          duration: 3000,
+          fill: "forwards",
+          // easing: "ease-in-out",
+        }
       );
     },
     [width, height]
@@ -46,7 +47,7 @@ export const GlowEffect = () => {
         viewBox="0 0 672 557"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute left-0 top-0"
+        className="absolute left-0 top-0 transform-gpu"
       >
         <path
           opacity="0.2"
