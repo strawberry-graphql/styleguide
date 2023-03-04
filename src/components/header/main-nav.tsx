@@ -115,7 +115,7 @@ export const MainNav = ({ activeSection }: { activeSection?: string }) => {
       <span
         ref={lineRef}
         className={clsx(
-          "!m-0 absolute rounded-sm bottom-0 left-0 right-0 h-2",
+          "!m-0 absolute rounded-sm bottom-0 left-0 h-2",
           "bg-gradient-to-r from-magenta to-orange hidden md:block",
           "transition-all ease-in-out duration-500"
         )}
