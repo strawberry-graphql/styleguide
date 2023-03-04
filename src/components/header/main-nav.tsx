@@ -1,16 +1,23 @@
 "use client";
 
 import clsx from "clsx";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 
 const Link = ({
   href,
   children,
   active = false,
+  showUnderline = false,
 }: {
   href: string;
   children: React.ReactNode;
   active?: boolean;
+  showUnderline?: boolean;
 }) => {
   return (
     <a
@@ -32,7 +39,8 @@ const Link = ({
           "group-hover:from-magenta group-hover:to-orange",
           "bg-g-100",
           "group-hover:h-1 group-hover:md:h-2",
-          "transition-opacity md:hidden",
+          "transition-opacity",
+          { "md:hidden": !showUnderline },
           { "opacity-100 from-magenta to-orange h-2 group-hover:h-2": active }
         )}
       />
@@ -43,6 +51,10 @@ const Link = ({
 export const MainNav = ({ activeSection }: { activeSection?: string }) => {
   const navRef = useRef<HTMLUListElement>(null);
   const lineRef = useRef<HTMLSpanElement>(null);
+  // we use this to force showing the underline before the animateToActive code
+  // runs, so that the underline is visible when the page loads, it's ugly but
+  // it works :)
+  const [shouldShowUnderline, setShouldShowUnderline] = useState(true);
 
   const setPosition = (element: HTMLElement | null) => {
     const left = element ? element.offsetLeft : 0;
@@ -78,6 +90,8 @@ export const MainNav = ({ activeSection }: { activeSection?: string }) => {
 
   useLayoutEffect(() => {
     animateToActive();
+
+    setShouldShowUnderline(false);
   }, [activeSection, animateToActive]);
 
   return (
@@ -90,6 +104,7 @@ export const MainNav = ({ activeSection }: { activeSection?: string }) => {
         onMouseEnter={handleHover}
         className={clsx({
           active: activeSection == "docs",
+          shouldShowUnderline,
         })}
       >
         <Link href="/docs" active={activeSection == "docs"}>
