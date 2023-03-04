@@ -1,4 +1,4 @@
-import { Paragraph } from "dist";
+import { Paragraph } from "../typography/paragraph";
 import { Caption } from "../typography/caption";
 
 const LinkIcon = () => {
@@ -33,17 +33,19 @@ const LinkIcon = () => {
   );
 };
 
+export type Contributor = {
+  name: string;
+  url: string;
+  avatarUrl: string;
+  title: string;
+};
+
 export const ContributorCard = ({
   name,
   url,
   avatarUrl,
   title,
-}: {
-  name: string;
-  url: string;
-  avatarUrl: string;
-  title: string;
-}) => {
+}: Contributor) => {
   return (
     <div className="bg-white bg-opacity-75 rounded-[16px] p-16 border border-g-100 flex">
       <img

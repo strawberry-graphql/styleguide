@@ -23,3 +23,4 @@ export { DocsContent, DocsWrapper } from "./components/docs/docs";
 export { Callout } from "./components/callout/callout";
 export { DarkModeScript } from "./components/dark-mode/dark-mode";
 export { ContributorCard } from "./components/contributor-card/contributor-card";
+export { ContributorsGrid } from "./components/contributors-grid/contributors-grid";
