@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const Link = ({
   href,
@@ -76,7 +76,7 @@ export const MainNav = ({ activeSection }: { activeSection?: string }) => {
     animateToActive();
   }, [animateToActive]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     animateToActive();
   }, [activeSection, animateToActive]);
 
