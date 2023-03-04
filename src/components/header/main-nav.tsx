@@ -1,12 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import {
-  useCallback,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 const Link = ({
   href,
@@ -104,10 +99,13 @@ export const MainNav = ({ activeSection }: { activeSection?: string }) => {
         onMouseEnter={handleHover}
         className={clsx({
           active: activeSection == "docs",
-          shouldShowUnderline,
         })}
       >
-        <Link href="/docs" active={activeSection == "docs"}>
+        <Link
+          href="/docs"
+          active={activeSection == "docs"}
+          showUnderline={shouldShowUnderline}
+        >
           Docs
         </Link>
       </li>
