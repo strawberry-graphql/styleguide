@@ -18,7 +18,12 @@ if (
 `;
 
 export const DarkModeScript = () => {
-  return <Script id="dark-mode">{scriptCode}</Script>;
+  return (
+    // eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
+    <Script id="dark-mode" strategy="beforeInteractive">
+      {scriptCode}
+    </Script>
+  );
 };
 
 export const useDarkModeToggle = () => {
