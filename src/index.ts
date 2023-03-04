@@ -6,6 +6,7 @@ export { FeaturesSection } from "./components/features-section/features-section"
 export { SponsorsSection } from "./components/sponsors-section/sponsors-section";
 export { GlowEffect } from "./components/glow-effect/glow-effect";
 export { MobileNav } from "./components/mobile-nav/mobile-nav";
+export { Display } from "./components/typography/display";
 export { Paragraph } from "./components/typography/paragraph";
 export { SearchInput } from "./components/form/search-input";
 export { SidebarNav } from "./components/sidebar-nav/sidebar-nav";
@@ -21,3 +22,4 @@ export { PageTOC } from "./components/page-toc/page-toc";
 export { DocsContent, DocsWrapper } from "./components/docs/docs";
 export { Callout } from "./components/callout/callout";
 export { DarkModeScript } from "./components/dark-mode/dark-mode";
+export { ContributorCard } from "./components/contributor-card/contributor-card";
