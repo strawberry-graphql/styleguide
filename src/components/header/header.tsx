@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import Link from "next/link";
 import { useState } from "react";
 import { DarkModeToggle } from "../dark-mode/dark-mode";
 import { MenuIcon } from "../icons/menu";
@@ -47,7 +48,9 @@ export const Header = ({
       )}
     >
       <div className="flex-1">
-        <Logo className="w-[40px] h-[40px] md:w-[67px] md:h-[80px]" />
+        <Link href="/" className="w-[40px] h-[40px] md:w-[67px] md:h-[80px] block">
+          <Logo className="w-full h-full" />
+        </Link>
       </div>
 
       <nav

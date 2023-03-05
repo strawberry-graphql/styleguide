@@ -1,5 +1,6 @@
 import { Paragraph } from "../typography/paragraph";
 import { Caption } from "../typography/caption";
+import clsx from "clsx";
 
 const LinkIcon = () => {
   return (
@@ -14,20 +15,20 @@ const LinkIcon = () => {
       <path
         d="M16 12.6667V16.6667C16 17.0203 15.8595 17.3594 15.6095 17.6095C15.3594 17.8595 15.0203 18 14.6667 18H7.33333C6.97971 18 6.64057 17.8595 6.39052 17.6095C6.14048 17.3594 6 17.0203 6 16.6667V9.33333C6 8.97971 6.14048 8.64057 6.39052 8.39052C6.64057 8.14048 6.97971 8 7.33333 8H11.3333"
         stroke="#0D0E12"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M14 6H18V10"
         stroke="#0D0E12"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M10.6667 13.3333L18 6"
         stroke="#0D0E12"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -47,13 +48,18 @@ export const ContributorCard = ({
   title,
 }: Contributor) => {
   return (
-    <div className="bg-white bg-opacity-75 rounded-[16px] p-16 border border-g-100 flex">
+    <div
+      className={clsx(
+        "bg-white bg-opacity-75 rounded-[16px] p-16 border border-g-100 flex",
+        "dark:border-transparency-light dark:bg-blog-card-dark"
+      )}
+    >
       <img
         src={avatarUrl}
         className="w-[74px] h-[74px] rounded-[12px] aspect-square object-cover mr-24"
       />
       <div className="flex flex-col justify-center">
-        <Caption className="text-g-700">{title}</Caption>
+        <Caption className="text-g-700 dark:text-g-500">{title}</Caption>
         <Paragraph variant="small" className="font-bold">
           {name}
         </Paragraph>

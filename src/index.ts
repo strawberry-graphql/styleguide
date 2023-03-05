@@ -24,3 +24,4 @@ export { Callout } from "./components/callout/callout";
 export { DarkModeScript } from "./components/dark-mode/dark-mode";
 export { ContributorCard } from "./components/contributor-card/contributor-card";
 export { ContributorsGrid } from "./components/contributors-grid/contributors-grid";
+export { Box } from "./components/box/box";
