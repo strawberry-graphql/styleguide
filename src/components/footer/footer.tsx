@@ -29,7 +29,7 @@ const links = [
     label: "Acknowledgements",
   },
   {
-    href: "/coc",
+    href: "/code-of-conduct",
     label: "Code of Conduct",
   },
 ];
