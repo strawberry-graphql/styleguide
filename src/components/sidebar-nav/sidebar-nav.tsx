@@ -1,21 +1,26 @@
+"use client";
 import clsx from "clsx";
 import Link from "next/link";
 import { ArrowUpIcon } from "../icons/arrow-up";
+import { usePathname } from "next/navigation";
 
 export type Section = {
   name: string;
   links: {
     href: string;
     name: string;
-    active?: boolean;
   }[];
 };
 
 export const SidebarNav = ({ sections }: { sections: Section[] }) => {
+  const pathname = usePathname();
+
   return (
     <nav>
       {sections.map((section) => {
-        const hasActiveLink = section.links.some((link) => link.active);
+        const hasActiveLink = section.links.some(
+          (link) => link.href == pathname
+        );
 
         return (
           <details
@@ -36,7 +41,7 @@ export const SidebarNav = ({ sections }: { sections: Section[] }) => {
                   className={clsx(
                     "mt-16 typography-paragraph-2 font-bold text-g-500 hover:text-strawberry",
                     {
-                      "text-strawberry": link.active,
+                      "text-strawberry": pathname == link.href,
                     }
                   )}
                 >

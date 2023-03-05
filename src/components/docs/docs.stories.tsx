@@ -20,6 +20,17 @@ type Story = StoryObj<typeof DocsWrapper>;
 
 export const Default: Story = {
   args: {
+    sections: [
+      {
+        name: "Getting started",
+        links: [
+          {
+            name: "Introduction",
+            href: "/docs/getting-started/introduction",
+          },
+        ],
+      },
+    ],
     children: (
       <>
         <DocsContent>
