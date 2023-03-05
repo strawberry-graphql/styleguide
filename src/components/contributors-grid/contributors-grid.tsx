@@ -6,7 +6,7 @@ export const ContributorsGrid = ({
   contributors: Contributor[];
 }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-24">
       {contributors.map((contributor) => (
         <ContributorCard
           key={contributor.name}
