@@ -60,11 +60,11 @@ export const Header = ({
           { hidden: !isMenuOpen, flex: isMenuOpen }
         )}
       >
-        <div className="order-2 my-40 md:-order-none md:my-0 md:hidden lg:block">
+        <div className="order-2 my-40 md:-order-none md:my-0">
           <Version version={version} />
         </div>
 
-        <div className="hidden lg:block">
+        <div>
           <VerticalSeparator />
         </div>
 

@@ -8,7 +8,7 @@ import { Paragraph } from "../typography/paragraph";
 import { DocsWrapper, DocsContent } from "./docs";
 
 const meta: Meta<typeof DocsWrapper> = {
-  title: "Components/Docs",
+  title: "Layout/Docs",
   component: DocsWrapper,
   parameters: {
     layout: "fullscreen",
