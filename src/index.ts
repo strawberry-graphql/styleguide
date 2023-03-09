@@ -29,6 +29,7 @@ export { NotFoundHero } from "./components/not-found-hero/not-found-hero";
 export {
   TableRow,
   Table,
+  TableHead,
   TableHeader,
   TableCell,
 } from "./components/table/table";
