@@ -26,3 +26,9 @@ export { ContributorCard } from "./components/contributor-card/contributor-card"
 export { ContributorsGrid } from "./components/contributors-grid/contributors-grid";
 export { Box } from "./components/box/box";
 export { NotFoundHero } from "./components/not-found-hero/not-found-hero";
+export {
+  TableRow,
+  Table,
+  TableHeader,
+  TableCell,
+} from "./components/table/table";
