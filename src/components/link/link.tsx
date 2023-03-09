@@ -20,13 +20,13 @@ export const Link = ({
       rel={rel}
       target={target}
       className={clsx(
-        "relative font-bold text-strawberry group hover:text-white transition-colors",
+        // maybe use decoration-clone
+        "font-bold text-strawberry group hover:text-white transition-all bg-gradient-to-r from-magenta to-orange",
+        "bg-[size:100%_2px] bg-[position:0_100%] hover:bg-[size:100%_100%] bg-no-repeat pb-4",
         className
       )}
     >
-      <span className="relative z-10">{children}</span>
-
-      <span className="absolute -left-1 -right-1 -bottom-3 h-2 bg-gradient-to-r from-magenta to-orange group-hover:h-[calc(100%_+_3px)] transition-all" />
+      {children}
     </NextLink>
   );
 };
