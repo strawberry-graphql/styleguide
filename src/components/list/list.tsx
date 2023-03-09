@@ -23,7 +23,14 @@ export const List = ({
 
   return (
     <Tag
-      className={clsx("list-disc list-inside typography-paragraph", className)}
+      className={clsx(
+        "list-outside typography-paragraph",
+        {
+          "list-disc pl-16": variant === "unordered",
+          "list-decimal pl-[20px]": variant === "ordered",
+        },
+        className
+      )}
     >
       {children}
     </Tag>
