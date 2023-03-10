@@ -1,3 +1,4 @@
+import { SearchBoxTrigger } from "../form/search-box-trigger";
 import { SearchInput } from "../form/search-input";
 import { Section, SidebarNav } from "../sidebar-nav/sidebar-nav";
 import { Spacer } from "../spacer/spacer";
@@ -17,7 +18,7 @@ export const DocsWrapper = ({
     <div className="md:grid grid-cols-[320px_1fr]">
       <div className="w-[320px] hidden md:block pl-40 pr-16 sticky top-24 max-h-screen overflow-scroll">
         <Spacer size={16} />
-        <SearchInput placeholder="Search" />
+        <SearchBoxTrigger />
         <Spacer size={40} />
         <SidebarNav sections={sections} />
       </div>

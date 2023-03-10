@@ -9,40 +9,44 @@ export const Modal = ({
   title,
   label,
   onClose,
-  showCloseIcon = true,
+  naked = false,
 }: {
   children: React.ReactNode;
   open: boolean;
   onClose: () => void;
   title?: string;
   label?: string;
-  showCloseIcon?: boolean;
+  naked?: boolean;
 }) => {
   return (
-    <Dialog open={open} onClose={onClose} className="relative z-50">
-      {/* The backdrop, rendered as a fixed sibling to the panel container */}
-      <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+    <Dialog
+      open={open}
+      onClose={onClose}
+      className="z-50 fixed inset-0 bg-black/30 pt-80"
+    >
+      <div className="absolute inset-0" aria-hidden="true" onClick={onClose} />
 
-      <div className="fixed inset-0 flex items-center justify-center p-24">
-        {/* The actual dialog panel  */}
-        <Dialog.Panel className="mx-auto max-w-screen-sm rounded-[16px] bg-white p-24 pr-64 pb-48 relative">
-          {label && <Caption className="text-g-500">{label}</Caption>}
-          {title && (
-            <Dialog.Title className="typography-heading-4">
-              {title}
-            </Dialog.Title>
-          )}
+      {naked ? (
+        <div className="relative z-10 mx-auto max-w-screen-sm">{children}</div>
+      ) : (
+        <div className="relative z-10 flex items-center justify-center p-24">
+          <Dialog.Panel className="mx-auto max-w-screen-sm rounded-[16px] bg-white p-24 pr-64 pb-48 relative">
+            {label && <Caption className="text-g-500">{label}</Caption>}
+            {title && (
+              <Dialog.Title className="typography-heading-4">
+                {title}
+              </Dialog.Title>
+            )}
 
-          {children}
+            {children}
 
-          {showCloseIcon && (
             <MenuCloseIcon
               className="absolute top-24 right-24"
               onClick={onClose}
             />
-          )}
-        </Dialog.Panel>
-      </div>
+          </Dialog.Panel>
+        </div>
+      )}
     </Dialog>
   );
 };

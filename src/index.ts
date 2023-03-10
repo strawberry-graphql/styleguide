@@ -33,3 +33,4 @@ export {
   TableHeader,
   TableCell,
 } from "./components/table/table";
+export { SearchBoxTrigger } from "./components/form/search-box-trigger";

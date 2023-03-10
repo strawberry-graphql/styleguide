@@ -102,7 +102,7 @@ const Inner = () => {
     <Combobox>
       <div
         className={clsx(
-          "border border-g-100 rounded-[16px]",
+          "min-w-[320px] sm:min-w-[500px] md:min-w-[600px] border border-g-100 rounded-[16px]",
           "bg-white bg-opacity-75 backdrop-blur-md",
           "dark:bg-footer-dark dark:border-transparency-light dark:backdrop-blur-md"
         )}
@@ -118,8 +118,8 @@ const Inner = () => {
           />
         </header>
 
-        <div className="min-h-[140px] flex justify-center items-center text-g-700 border-t border-b border-g-100 dark:border-transparency-light">
-          <div className="flex-1 py-32 px-24">
+        <div className="flex justify-center items-center text-g-700 border-t border-b border-g-100 dark:border-transparency-light">
+          <div className="flex-1 py-32 px-24 min-h-[140px] max-h-[65vh] overflow-auto">
             <Combobox.Options>
               {groups.map((group) => {
                 return (

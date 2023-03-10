@@ -9,7 +9,6 @@ import { ErrorLabel, SuccessLabel } from "./labels";
 export const SearchInput = ({
   name,
   id,
-
   placeholder,
   value,
   onChange,
@@ -17,8 +16,8 @@ export const SearchInput = ({
   required,
   disabled,
   className,
-
   success,
+  onFocus,
   ...props
 }: {
   name?: string;
@@ -31,10 +30,11 @@ export const SearchInput = ({
   disabled?: boolean;
   className?: string;
   success?: string;
+  onFocus?: (e: any) => void;
 }) => {
   return (
-    <div>
-      <div className="relative inline-block">
+    <div className={className}>
+      <div className="relative inline-block w-full">
         <BaseInput
           type="search"
           id={id}
@@ -44,6 +44,7 @@ export const SearchInput = ({
           onChange={onChange}
           required={required}
           disabled={disabled}
+          onFocus={onFocus}
           className={clsx("pl-48", {
             "border-strawberry": error,
             "border-green": success,

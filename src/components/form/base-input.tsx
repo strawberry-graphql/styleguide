@@ -10,6 +10,7 @@ export const BaseInput = ({
   required,
   disabled,
   className,
+  onFocus,
 }: {
   name?: string;
   id?: string;
@@ -22,6 +23,7 @@ export const BaseInput = ({
   disabled?: boolean;
   className?: string;
   success?: string;
+  onFocus?: (e: any) => void;
 }) => (
   <input
     type={type}
@@ -32,6 +34,7 @@ export const BaseInput = ({
     onChange={onChange}
     required={required}
     disabled={disabled}
+    onFocus={onFocus}
     className={clsx(
       "border-[1.5px] border-g-100 dark:border-g-900 rounded-[30px] px-24 py-12 typography-paragraph-2",
       "placeholder:text-g-500 text-g-700 dark:text-g-50 disabled:text-g-400",
