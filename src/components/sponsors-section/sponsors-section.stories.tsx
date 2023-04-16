@@ -17,20 +17,32 @@ export const Default: Story = {
   args: {
     sponsors: [
       {
-        name: "Python Software Foundation",
-        href: "https://www.python.org/psf/",
-        logo: "https://www.python.org/static/opengraph-icon-200x200.png",
+        name: "Moving Content AG",
+        logo: "https://avatars.githubusercontent.com/u/1352964?v=4",
+        href: "https://github.com/moving-content",
       },
       {
-        name: "Python Software Foundation",
-        href: "https://www.python.org/psf/",
-        logo: "https://www.python.org/static/opengraph-icon-200x200.png",
+        id: "exoflare",
+        name: "ExoFlare",
+        logo: "https://avatars.githubusercontent.com/u/74335107?v=4",
+        href: "https://www.exoflare.com/",
       },
       {
-        name: "Python Software Foundation",
-        href: "https://www.python.org/psf/",
-        logo: "https://www.python.org/static/opengraph-icon-200x200.png",
+        name: "Wedgworth's, Inc",
+        logo: "https://avatars.githubusercontent.com/u/120101163?v=4",
+        href: "https://wedgworth.com/",
+      },
+      {
+        name: "Cinder",
+        logo: "https://images.opencollective.com/cinder/c477685/logo.png",
+        href: "https://cinder.co",
       },
     ],
+    logoOverrides: {
+      exoflare: {
+        darkMode: "/sponsor-overrides/exoflare-white.png",
+        lightMode: "/sponsor-overrides/exoflare-black.png",
+      },
+    },
   },
 };

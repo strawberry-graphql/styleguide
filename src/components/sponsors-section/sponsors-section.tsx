@@ -1,24 +1,62 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { Button } from "../button/button";
 import { Heading } from "../typography/heading";
 
 type Sponsor = {
+  id?: string;
   name: string;
   href: string;
   logo: string;
 };
 
-const Sponsor = ({ name, href, logo }: Sponsor) => {
+const Sponsor = ({
+  name,
+  href,
+  logo,
+  logoOverride,
+}: Sponsor & {
+  logoOverride?: {
+    darkMode: string;
+    lightMode: string;
+  };
+}) => {
   return (
     <li className="snap-center break-inside-avoid mb-24 lg:w-auto flex-shrink-0 self-stretch flex items-stretch">
       <Link href={href}>
-        <img src={logo} alt={name} />
+        {logoOverride ? (
+          <>
+            <img
+              src={logoOverride.darkMode}
+              alt={name}
+              className="max-w-[250px] max-h-[120px] hidden dark:block"
+            />
+            <img
+              src={logoOverride.lightMode}
+              alt={name}
+              className="max-w-[250px] max-h-[120px] block dark:hidden"
+            />
+          </>
+        ) : (
+          <img src={logo} alt={name} className="max-w-[250px] max-h-[120px]" />
+        )}
       </Link>
     </li>
   );
 };
 
-export const SponsorsSection = ({ sponsors }: { sponsors: Sponsor[] }) => {
+export const SponsorsSection = ({
+  sponsors,
+  logoOverrides,
+}: {
+  sponsors: Sponsor[];
+  logoOverrides?: {
+    [key: string]: {
+      darkMode: string;
+      lightMode: string;
+    };
+  };
+}) => {
   return (
     <section className="text-center">
       <div className="px-24">
@@ -33,9 +71,13 @@ export const SponsorsSection = ({ sponsors }: { sponsors: Sponsor[] }) => {
         </Button>
       </div>
 
-      <ul className="mt-80 gap-24 text-left overflow-scroll flex justify-center snap-x px-24 max-w-screen-xl mx-auto">
+      <ul className="mt-80 text-left overflow-scroll flex justify-center snap-x px-24 max-w-screen-xl mx-auto gap-72">
         {sponsors.map((sponsor) => (
-          <Sponsor key={sponsor.name} {...sponsor} />
+          <Sponsor
+            key={sponsor.name}
+            {...sponsor}
+            logoOverride={logoOverrides?.[sponsor.id ?? sponsor.name]}
+          />
         ))}
       </ul>
     </section>

@@ -24,6 +24,7 @@ const config: StorybookConfig = {
       from: "../src/fonts",
       to: "/fonts",
     },
+    "../public",
   ],
 
   webpackFinal: async (config: Configuration) => {
