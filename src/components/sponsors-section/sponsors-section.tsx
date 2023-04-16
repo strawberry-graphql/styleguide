@@ -48,7 +48,9 @@ const Sponsor = ({
 export const SponsorsSection = ({
   sponsors,
   logoOverrides,
+  downloads,
 }: {
+  downloads: { lastMonth: number; lastWeek: number };
   sponsors: Sponsor[];
   logoOverrides?: {
     [key: string]: {
@@ -63,7 +65,7 @@ export const SponsorsSection = ({
         <Heading>Discover the sponsors that make Strawberry possible.</Heading>
 
         <Heading level={4} className="mt-24 mb-48 text-g-700 dark:text-g-500">
-          More that 20000 downloads last week
+          More than {downloads.lastWeek.toLocaleString()} downloads last week
         </Heading>
 
         <Button as="a" href="/sponsor-us">

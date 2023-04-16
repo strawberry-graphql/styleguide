@@ -15,6 +15,7 @@ type Story = StoryObj<typeof SponsorsSection>;
 
 export const Default: Story = {
   args: {
+    downloads: { lastMonth: 639284, lastWeek: 144952 },
     sponsors: [
       {
         name: "Moving Content AG",
