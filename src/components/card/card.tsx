@@ -1,20 +1,42 @@
-import { PencilIcon } from "../icons/pencil";
+import {
+  Zap,
+  Edit2,
+  Move,
+  Heart,
+  Link,
+  Layers,
+  Loader,
+  Radio,
+} from "react-feather";
 import { Paragraph } from "../typography/paragraph";
 
-export type Icons = "pencil";
+export type Icons =
+  | "edit"
+  | "zap"
+  | "move"
+  | "heart"
+  | "layers"
+  | "link"
+  | "loader"
+  | "radio";
 
 const CardIcon = ({ icon }: { icon: Icons }) => {
-  let Icon = null;
+  const iconMap = {
+    edit: Edit2,
+    move: Move,
+    heart: Heart,
+    link: Link,
+    zap: Zap,
+    layers: Layers,
+    loader: Loader,
+    radio: Radio,
+  };
 
-  switch (icon) {
-    case "pencil":
-      Icon = PencilIcon;
-      break;
-  }
+  const Icon = iconMap[icon] || null;
 
   return (
     <div className="bg-strawberry rounded-[4px] w-40 h-40 justify-center items-center flex">
-      <Icon />
+      <Icon className="stroke-white" />
     </div>
   );
 };
@@ -34,7 +56,9 @@ export const Card = ({
         <CardIcon icon={icon} />
       </div>
 
-      <Paragraph bold className="mb-8">{title}</Paragraph>
+      <Paragraph bold className="mb-8">
+        {title}
+      </Paragraph>
       <Paragraph variant="small">{description}</Paragraph>
     </div>
   );

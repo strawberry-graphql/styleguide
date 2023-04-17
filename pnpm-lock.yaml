@@ -27,6 +27,7 @@ specifiers:
   postcss-loader: ^7.2.4
   react: 18.2.0
   react-dom: 18.2.0
+  react-feather: ^2.0.10
   react-instantsearch-hooks-web: ^6.42.2
   remove: ^0.1.5
   shiki: ^0.14.1
@@ -52,6 +53,7 @@ dependencies:
   postcss-loader: 7.2.4_atz3wdte7ogce24auk2sfmkdxm
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-feather: 2.0.10_react@18.2.0
   react-instantsearch-hooks-web: 6.42.2_jkqj3263ob3etl7pry73ztmn6q
   remove: 0.1.5
   shiki: 0.14.1
@@ -8937,6 +8939,15 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       react-is: 18.1.0
     dev: true
+
+  /react-feather/2.0.10_react@18.2.0:
+    resolution: {integrity: sha512-BLhukwJ+Z92Nmdcs+EMw6dy1Z/VLiJTzEQACDUEnWMClhYnFykJCGWQx+NmwP/qQHGX/5CzQ+TGi8ofg2+HzVQ==}
+    peerDependencies:
+      react: '>=16.8.6'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
 
   /react-inspector/6.0.1_react@18.2.0:
     resolution: {integrity: sha512-cxKSeFTf7jpSSVddm66sKdolG90qURAX3g1roTeaN6x0YEbtWc8JpmFN9+yIqLNH2uEkYerWLtJZIXRIFuBKrg==}
