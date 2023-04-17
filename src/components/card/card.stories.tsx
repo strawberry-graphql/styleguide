@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
   args: {
-    icon: "pencil",
+    icon: "edit",
     title: "Support for typing",
     description:
       "Lorem ipsum dolor sit amet consectetur. Eget nunc varius pretium ultrices a euismod. Eu ",
