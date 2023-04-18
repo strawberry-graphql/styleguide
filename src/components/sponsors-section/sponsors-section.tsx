@@ -59,13 +59,19 @@ export const SponsorsSection = ({
     };
   };
 }) => {
+  function roundDownToNearest(num: number, nearest: number) {
+    return Math.floor(num / nearest) * nearest;
+  }
+
+  const downloadsLastWeek = roundDownToNearest(downloads.lastWeek, 5000);
+
   return (
     <section className="text-center">
       <div className="px-16 md:px-24">
         <Heading>Discover the sponsors that make Strawberry possible.</Heading>
 
         <Heading level={4} className="mt-24 mb-48 text-g-700 dark:text-g-500">
-          More than {downloads.lastWeek.toLocaleString()} downloads last week
+          More than {downloadsLastWeek.toLocaleString()} downloads last week
         </Heading>
 
         <Button as="a" href="/sponsor-us">
