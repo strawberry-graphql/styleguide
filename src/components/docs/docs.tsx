@@ -1,10 +1,12 @@
 import { SearchBoxTrigger } from "../form/search-box-trigger";
-import { SearchInput } from "../form/search-input";
 import { Section, SidebarNav } from "../sidebar-nav/sidebar-nav";
 import { Spacer } from "../spacer/spacer";
 
 export const DocsContent = ({ children }: { children: React.ReactNode }) => (
-  <div className="docs-content">{children}</div>
+  // We use #docs-content on algolia to find content
+  <div className="docs-content" id="docs-content">
+    {children}
+  </div>
 );
 
 export const DocsWrapper = ({
