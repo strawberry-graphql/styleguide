@@ -61,7 +61,7 @@ export const SponsorsSection = ({
 }) => {
   return (
     <section className="text-center">
-      <div className="px-24">
+      <div className="px-16 md:px-24">
         <Heading>Discover the sponsors that make Strawberry possible.</Heading>
 
         <Heading level={4} className="mt-24 mb-48 text-g-700 dark:text-g-500">

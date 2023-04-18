@@ -44,7 +44,7 @@ export const Header = ({
   return (
     <header
       className={clsx(
-        "mx-auto max-w-[1600px] px-40 py-16 grid grid-cols-2 items-center md:flex"
+        "mx-auto max-w-[1600px] px-16 md:px-40 py-16 grid grid-cols-2 items-center md:flex"
       )}
     >
       <div className="flex-1">
