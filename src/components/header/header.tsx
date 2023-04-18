@@ -48,7 +48,10 @@ export const Header = ({
       )}
     >
       <div className="flex-1">
-        <Link href="/" className="w-[40px] h-[40px] md:w-[67px] md:h-[80px] block">
+        <Link
+          href="/"
+          className="w-[40px] h-[40px] md:w-[67px] md:h-[80px] block"
+        >
           <Logo className="w-full h-full" />
         </Link>
       </div>
@@ -64,7 +67,9 @@ export const Header = ({
           <Version version={version} />
         </div>
 
-        <div>
+        <div
+          className="hidden md:block"
+        >
           <VerticalSeparator />
         </div>
 
