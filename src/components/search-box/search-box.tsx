@@ -112,7 +112,7 @@ const Inner = () => {
 
           <Combobox.Input
             type="search"
-            className="ml-16 flex-1 py-24 typography-paragraph-2 text-g-500 dark:text-g-700 outline-none bg-transparent"
+            className="ml-16 flex-1 py-24 typography-paragraph-2 placeholder:text-g-500 text-g-900 dark:text-g-50 outline-none bg-transparent placeholder:dark:text-g-700"
             placeholder="Search documentation"
             onChange={(event) => refine(event.target.value)}
           />
@@ -124,7 +124,7 @@ const Inner = () => {
               {groups.map((group) => {
                 return (
                   <div key={group.name} className="mb-32">
-                    <Paragraph className="font-bold mb-16">
+                    <Paragraph className="font-bold mb-16 dark:text-white">
                       {group.name}
                     </Paragraph>
 

@@ -31,9 +31,12 @@ export const Result = ({
   return (
     <div
       className={clsx(
-        "bg-g-50 rounded-[8px] px-16 py-12 typography-paragraph-2 text-g-900",
+        "rounded-[8px] px-16 py-12 typography-paragraph-2 text-g-900",
         "flex items-center justify-between",
         {
+          "bg-g-50 dark:bg-g-900 text-g-900 dark:text-g-50": !(
+            active || selected
+          ),
           "bg-strawberry text-white selected": active || selected,
         }
       )}

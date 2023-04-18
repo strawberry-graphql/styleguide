@@ -158,12 +158,11 @@ body {
 }
 
 mark {
-  @apply text-strawberry underline bg-transparent;
+  @apply text-strawberry underline bg-transparent font-bold;
 }
 
 .selected mark {
   color: inherit;
-  text-decoration: none;
 }
 
 * {
