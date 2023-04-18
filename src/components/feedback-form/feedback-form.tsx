@@ -51,8 +51,9 @@ const FeedbackOption = ({
     <label
       className={clsx(
         "border border-g-100 relative rounded-[4px] w-[28px] h-[28px] flex justify-center items-center hover:bg-g-50",
+        "dark:border-g-900 dark:hover:bg-g-700",
         {
-          "bg-g-50": selected,
+          "bg-g-50 dark:bg-g-700": selected,
         }
       )}
     >
