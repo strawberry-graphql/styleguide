@@ -3,11 +3,16 @@ import clsx from "clsx";
 export const ListItem = ({
   children,
   className,
+  ...props
 }: {
   children: React.ReactNode;
   className?: string;
 }) => {
-  return <li className={clsx("mb-2", className)}>{children}</li>;
+  return (
+    <li className={clsx("mb-2", className)} {...props}>
+      {children}
+    </li>
+  );
 };
 
 export const List = ({
