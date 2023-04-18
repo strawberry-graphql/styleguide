@@ -1,5 +1,5 @@
 import { Card, Icons } from "../card/card";
-import { Display } from "../typography/display";
+import { Heading } from "../typography/heading";
 
 const FeatureItem = ({
   title,
@@ -26,7 +26,7 @@ type Feature = {
 export const FeaturesSection = ({ features }: { features: Feature[] }) => {
   return (
     <section className="text-center">
-      <Display>Modern Python, modern features</Display>
+      <Heading>Modern Python, modern features</Heading>
 
       <ul className="mt-80 gap-24 text-left overflow-scroll flex snap-x px-16 md:px-24 lg:columns-4 lg:block max-w-screen-xl mx-auto">
         {features.map((feature) => (
