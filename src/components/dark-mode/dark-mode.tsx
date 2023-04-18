@@ -1,30 +1,27 @@
 "use client";
 
-import Script from "next/script";
 import { useState } from "react";
 import { MoonIcon } from "../icons/moon";
 import { SunIcon } from "../icons/sun";
 
 const scriptCode = `
-if (
-  localStorage.theme === "dark" ||
-  (!("theme" in localStorage) &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  document.documentElement.classList.add("dark");
-} else {
-  document.documentElement.classList.remove("dark");
-}
+const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-darkModeMediaQuery.addEventListener('change', (e) => {
-  const darkModeOn = e.matches;
-
-  if (darkModeOn) {
+function updateTheme(matches) {
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) && matches)
+  ) {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
   }
+}
+
+updateTheme(darkModeMediaQuery.matches);
+
+darkModeMediaQuery.addEventListener("change", (e) => {
+  updateTheme(e.matches);
 });
 `;
 
