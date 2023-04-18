@@ -1,15 +1,6 @@
-import { DarkModeScript } from "@/components/dark-mode/dark-mode";
 import { Header } from "@/components/header/header";
 import { Hero } from "@/components/hero/hero";
-import { highlight } from "@/lib/shiki";
 
-const graphqlQuery = `query {
-  # this is a comment
-  user(id: 1) {
-    name
-    email
-  }
-}`;
 
 export default async function Home() {
   return (
