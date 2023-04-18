@@ -11,7 +11,6 @@
           theme("colors.orange")
         )
         border-box;
-    border-radius: 30px;
     border: 1.5px solid transparent;
   }
 
@@ -24,7 +23,6 @@
           theme("colors.orange")
         )
         border-box;
-    border-radius: 30px;
     border: 1.5px solid transparent;
   }
 
@@ -37,7 +35,6 @@
           theme("colors.orange")
         )
         border-box;
-    border-radius: 30px;
     border: 1.5px solid transparent;
   }
 }
