@@ -34,3 +34,4 @@ export {
   TableCell,
 } from "./components/table/table";
 export { SearchBoxTrigger } from "./components/form/search-box-trigger";
+export { FeedbackForm } from "./components/feedback-form/feedback-form";
