@@ -15,6 +15,17 @@ if (
 } else {
   document.documentElement.classList.remove("dark");
 }
+
+const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+darkModeMediaQuery.addEventListener('change', (e) => {
+  const darkModeOn = e.matches;
+
+  if (darkModeOn) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+});
 `;
 
 export const DarkModeScript = () => {
