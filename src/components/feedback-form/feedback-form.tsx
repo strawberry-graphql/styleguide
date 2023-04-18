@@ -36,6 +36,32 @@ const FEEDBACK_OPTIONS = [
   },
 ];
 
+const sendFeedback = async ({
+  sentiment,
+  feedback,
+  url,
+}: {
+  sentiment: string;
+  feedback: string;
+  url: string;
+}) => {
+  const request = await fetch("https://api.strawberry.rocks/graphql", {
+    method: "post",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      query:
+        "mutation ($input: SendFeedbackInput!) { sendFeedback(input: $input) }",
+      variables: { input: { feedback, sentiment, url } },
+    }),
+  });
+
+  const response = await request.json();
+
+  if (response.errors) {
+    throw new Error(JSON.stringify(response.errors));
+  }
+};
+
 const FeedbackOption = ({
   emoji,
   label,
@@ -60,7 +86,7 @@ const FeedbackOption = ({
       <input
         type="radio"
         id={label}
-        name="feedback"
+        name="sentiment"
         value={label}
         onChange={onChange}
         className="opacity-0 absolute inset-0 cursor-pointer"
@@ -72,6 +98,11 @@ const FeedbackOption = ({
 
 export const FeedbackForm = () => {
   const [selectedOption, setSelectedOption] = useState<string | undefined>();
+  const [{ loading, error, success }, setApi] = useState({
+    loading: false,
+    error: false,
+    success: false,
+  });
 
   const currentOption = FEEDBACK_OPTIONS.find(
     (option) => option.label === selectedOption
@@ -80,8 +111,37 @@ export const FeedbackForm = () => {
   const placeholder = currentOption?.placeholder;
   const buttonLabel = currentOption?.buttonLabel;
 
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const form = e.target as HTMLFormElement;
+
+    const formData = Object.fromEntries(new FormData(form));
+
+    const data = {
+      sentiment: currentOption!.emoji,
+      feedback: formData.feedback,
+      url: window.location.href,
+    };
+
+    setApi({ loading: true, error: false, success: false });
+
+    try {
+      await sendFeedback(
+        data as { feedback: string; sentiment: string; url: string }
+      );
+
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      setApi({ loading: false, error: false, success: true });
+    } catch (e) {
+      console.error(e);
+      setApi({ loading: false, error: true, success: false });
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={submit} className="mt-12">
       <div className="flex">
         <Paragraph variant="small" bold>
           Was this page helpful?
@@ -103,11 +163,24 @@ export const FeedbackForm = () => {
         <div className="mt-12">
           <Textarea
             placeholder={placeholder}
+            required
+            name="feedback"
             className="min-h-[120px] mb-4"
           ></Textarea>
 
-          <Button type="submit" as="button">
+          <Button
+            type="submit"
+            as="button"
+            disabled={loading}
+            className="relative"
+          >
             {buttonLabel}
+
+            {loading && (
+              <span className="animate-bounce absolute flex justify-center items-center inset-0">
+                🍓
+              </span>
+            )}
           </Button>
         </div>
       )}
