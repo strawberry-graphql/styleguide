@@ -198,3 +198,148 @@ details summary::-webkit-details-marker {
 .page-content :first-child {
   margin-top: 0 !important;
 }
+
+/* Mermaid styles */
+
+.mermaid > svg {
+  font-family: "trebuchet ms", verdana, arial, sans-serif;
+  font-size: 16px;
+  fill: #333;
+}
+.mermaid > svg .error-icon {
+  fill: hsl(220.5882352941, 100%, 98.3333333333%);
+}
+
+.mermaid > svg .error-text {
+  fill: rgb(8.5000000002, 5.7500000001, 0);
+  stroke: rgb(8.5000000002, 5.7500000001, 0);
+}
+.mermaid > svg .edge-thickness-normal {
+  stroke-width: 2px;
+}
+.mermaid > svg .edge-thickness-thick {
+  stroke-width: 3.5px;
+}
+.mermaid > svg .edge-pattern-solid {
+  stroke-dasharray: 0;
+}
+.mermaid > svg .edge-pattern-dashed {
+  stroke-dasharray: 3;
+}
+.mermaid > svg .edge-pattern-dotted {
+  stroke-dasharray: 2;
+}
+.mermaid > svg .marker {
+  fill: #0b0b0b;
+  stroke: #0b0b0b;
+}
+.mermaid > svg .marker.cross {
+  stroke: #0b0b0b;
+}
+.mermaid > svg svg {
+  font-family: "trebuchet ms", verdana, arial, sans-serif;
+  font-size: 16px;
+}
+.mermaid > svg .actor {
+  fill: var(--code-color-purple);
+  stroke: var(--code-color-purple);
+}
+.mermaid > svg text.actor > tspan {
+  fill: #333;
+  stroke: none;
+}
+.mermaid > svg .actor-line {
+  stroke: grey;
+}
+.mermaid > svg .messageLine0 {
+  stroke-width: 1.5;
+  stroke-dasharray: none;
+  stroke: #333;
+}
+.mermaid > svg .messageLine1 {
+  stroke-width: 1.5;
+  stroke-dasharray: 2, 2;
+  stroke: #333;
+}
+.mermaid > svg #arrowhead path {
+  fill: #333;
+  stroke: #333;
+}
+.mermaid > svg .sequenceNumber {
+  fill: #f4f4f4;
+}
+.mermaid > svg #sequencenumber {
+  @apply fill-g-900 dark:fill-g-100;
+}
+.mermaid > svg #crosshead path {
+  fill: #333;
+  stroke: #333;
+}
+.mermaid > svg .messageText {
+  fill: #333;
+  @apply fill-g-900 dark:fill-g-100;
+  stroke: none;
+}
+.mermaid > svg .labelBox {
+  fill: var(--code-color-purple);
+  stroke: var(--code-color-purple);
+}
+.mermaid > svg .labelText,
+.mermaid > svg .labelText > tspan {
+  fill: #333;
+  stroke: none;
+}
+.mermaid > svg .loopText,
+.mermaid > svg .loopText > tspan {
+  fill: #333;
+  stroke: none;
+}
+.mermaid > svg .loopLine {
+  stroke-width: 2px;
+  stroke-dasharray: 2, 2;
+  fill: var(--code-color-purple);
+  stroke: var(--code-color-purple);
+}
+.mermaid > svg .note {
+  fill: var(--code-color-orange);
+  stroke: var(--code-color-orange);
+}
+.mermaid > svg .noteText,
+.mermaid > svg .noteText > tspan {
+  fill: #333;
+  stroke: none;
+}
+.mermaid > svg .activation0 {
+  fill: hsl(-79.4117647059, 100%, 93.3333333333%);
+  stroke: hsl(-79.4117647059, 100%, 83.3333333333%);
+}
+.mermaid > svg .activation1 {
+  fill: hsl(-79.4117647059, 100%, 93.3333333333%);
+  stroke: hsl(-79.4117647059, 100%, 83.3333333333%);
+}
+.mermaid > svg .activation2 {
+  fill: hsl(-79.4117647059, 100%, 93.3333333333%);
+  stroke: hsl(-79.4117647059, 100%, 83.3333333333%);
+}
+.mermaid > svg .actorPopupMenu {
+  position: absolute;
+}
+.mermaid > svg .actorPopupMenuPanel {
+  position: absolute;
+  fill: #fff4dd;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+.mermaid > svg .actor-man line {
+  fill: var(--code-color-purple);
+  stroke: var(--code-color-purple);
+}
+.mermaid > svg .actor-man circle,
+.mermaid > svg line {
+  fill: var(--code-color-purple);
+  stroke: var(--code-color-purple);
+  stroke-width: 2px;
+}
+.mermaid > svg :root {
+  --mermaid-font-family: "trebuchet ms", verdana, arial, sans-serif;
+}
