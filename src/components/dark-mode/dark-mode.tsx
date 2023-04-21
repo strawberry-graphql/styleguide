@@ -7,22 +7,60 @@ import { SunIcon } from "../icons/sun";
 const scriptCode = `
 const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-function updateTheme(matches) {
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) && matches)
-  ) {
+function toggleTheme(matches, forceFromCookie) {
+  let shouldBeDark = false;
+
+  const userPrefersDark =
+    getCookie("theme") === "dark" || darkModeMediaQuery.matches;
+
+  if (forceFromCookie) {
+    shouldBeDark = userPrefersDark;
+  } else {
+    if (typeof matches === "undefined") {
+      shouldBeDark = !userPrefersDark;
+    } else {
+      shouldBeDark = matches;
+    }
+  }
+
+  if (shouldBeDark) {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
   }
+
+  setCookie("theme", shouldBeDark ? "dark" : "light", 365);
+
+  return matches;
 }
 
-updateTheme(darkModeMediaQuery.matches);
+toggleTheme(undefined, true);
 
 darkModeMediaQuery.addEventListener("change", (e) => {
-  updateTheme(e.matches);
+  toggleTheme(e.matches);
 });
+
+function setCookie(name, value, days) {
+  console.log("setting cookie", name, value)
+  let expires = "";
+  if (days) {
+    const date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+  name = name + "=";
+  const ca = document.cookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === " ") c = c.substring(1, c.length);
+    if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
+  }
+  return null;
+}
 `;
 
 export const DarkModeScript = () => {
@@ -33,18 +71,7 @@ export const useDarkModeToggle = () => {
   const [isDark, setIsDark] = useState(false);
 
   const toggle = () => {
-    const isDark =
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
-    }
+    const isDark = (window as any).toggleTheme();
 
     // for storybook :)
 
