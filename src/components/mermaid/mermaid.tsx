@@ -15,6 +15,20 @@ export const Mermaid = ({ code }: { code: string }) => {
     mermaid
       .render(CSS.escape(id), code)
       .then(({ svg }) => {
+        // get contents of style tag
+        const style = svg.match(/<style>.*<\/style>/)?.[0];
+        // remove style tag from style
+        const styleWithoutTag = style?.replace(/<style>|<\/style>/g, "");
+        // replace id with `.mermaid > svg`
+        const newStyle = styleWithoutTag?.replace(
+          new RegExp(`#${CSS.escape(id)}`, "g"),
+          ".mermaid > svg"
+        );
+
+        console.log(newStyle);
+
+
+
         // remove style tag from svg via regex
         svg = svg.replace(/<style>.*<\/style>/, "");
 
