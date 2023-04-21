@@ -35,3 +35,5 @@ export {
 } from "./components/table/table";
 export { SearchBoxTrigger } from "./components/form/search-box-trigger";
 export { FeedbackForm } from "./components/feedback-form/feedback-form";
+export { Mermaid } from "./components/mermaid/mermaid";
+export { ExtensionCard } from "./components/extension-card/extension-card";
