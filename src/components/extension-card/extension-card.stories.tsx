@@ -14,6 +14,7 @@ type Story = StoryObj<typeof ExtensionCard>;
 export const Default: Story = {
   args: {
     name: "An extension",
+    href: "#",
     description: "This is an extension that does something cool and useful.",
     tags: ["tag1", "tag2", "tag3"],
   },

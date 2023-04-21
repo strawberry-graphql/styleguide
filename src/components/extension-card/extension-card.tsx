@@ -1,20 +1,20 @@
 import clsx from "clsx";
-import { Caption } from "../typography/caption";
 import { Paragraph } from "../typography/paragraph";
 import { Heading } from "../typography/heading";
 import { Tag } from "../tag/tag";
+import Link from "next/link";
 
-export const ExtensionCard = ({
-  name,
-  description,
-  tags,
-}: {
+export type Extension = {
   name: string;
   description: string;
   tags: string[];
-}) => {
+  href: string;
+};
+
+export const ExtensionCard = ({ name, description, tags, href }: Extension) => {
   return (
-    <div
+    <Link
+      href={href}
       className={clsx(
         "bg-white bg-opacity-75 rounded-[16px] p-16 border border-g-100 flex",
         "dark:border-transparency-light dark:bg-blog-card-dark"
@@ -34,6 +34,6 @@ export const ExtensionCard = ({
       </div>
 
       <a href="" className="ml-auto" target="_blank" rel="noreferrer"></a>
-    </div>
+    </Link>
   );
 };
