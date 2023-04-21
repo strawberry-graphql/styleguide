@@ -41,7 +41,6 @@ darkModeMediaQuery.addEventListener("change", (e) => {
 });
 
 function setCookie(name, value, days) {
-  console.log("setting cookie", name, value)
   let expires = "";
   if (days) {
     const date = new Date();
