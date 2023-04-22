@@ -114,6 +114,7 @@ const Inner = () => {
             type="search"
             className="ml-16 flex-1 py-24 typography-paragraph-2 placeholder:text-g-500 text-g-900 dark:text-g-50 outline-none bg-transparent placeholder:dark:text-g-700"
             placeholder="Search documentation"
+            autoFocus
             onChange={(event) => refine(event.target.value)}
           />
         </header>
