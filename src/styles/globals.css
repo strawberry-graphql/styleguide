@@ -127,7 +127,7 @@
   }
 
   .codebox pre {
-    @apply px-24 md:px-48 py-32;
+    @apply p-24;
     overflow: visible !important;
   }
 }
