@@ -5,6 +5,10 @@
 @import url("./mermaid.css");
 
 @layer utilities {
+  .bg-inline-code {
+    background-color: rgba(247, 57, 61, 0.1);
+  }
+
   .gradient-border {
     background: linear-gradient(white, white) padding-box,
       linear-gradient(
