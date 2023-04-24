@@ -2,7 +2,6 @@
 import { offset, useFloating } from "@floating-ui/react-dom";
 import clsx from "clsx";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { usePopper } from "react-popper";
 
 export const Codebox = ({
   children,
@@ -20,24 +19,27 @@ export const Codebox = ({
     middleware: [offset(10)],
   });
 
-  const handleMouseEnter = useCallback((e: MouseEvent) => {
-    console.log(e.currentTarget);
-    if (e.currentTarget) {
-      // @ts-ignore
-      const noteId = e.currentTarget.dataset.nodeId!;
+  const handleMouseEnter = useCallback(
+    (e: MouseEvent) => {
+      console.log(e.currentTarget);
+      if (e.currentTarget) {
+        // @ts-ignore
+        const noteId = e.currentTarget.dataset.nodeId!;
 
-      // find first span with data-node-id
-      const span = ref.current?.querySelector<HTMLSpanElement>(
-        `span[data-node-id="${noteId}"]`
-      );
+        // find first span with data-node-id
+        const span = ref.current?.querySelector<HTMLSpanElement>(
+          `span[data-node-id="${noteId}"]`
+        );
 
-      if (span) {
-        refs.setReference(span);
+        if (span) {
+          refs.setReference(span);
+        }
+
+        setCurrentNote(noteId);
       }
-
-      setCurrentNote(noteId);
-    }
-  }, [refs]);
+    },
+    [refs]
+  );
 
   const handleMouseLeave = useCallback(() => {
     setCurrentNote(null);
