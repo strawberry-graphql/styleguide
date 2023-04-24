@@ -45,3 +45,123 @@ export const GraphQL: Story = {
     children: <code dangerouslySetInnerHTML={{ __html: graphqlExample }} />,
   },
 };
+
+export const Notes: Story = {
+  args: {
+    children: (
+      <code>
+        <pre
+          className="shiki"
+          style={{ backgroundColor: "transparent" }}
+          tabIndex={0}
+        >
+          <code>
+            <span className="line">
+              <span style={{ color: "var(--shiki-token-keyword)" }}>
+                import
+              </span>
+              <span style={{ color: "var(--shiki-color-text)" }}>
+                {" "}
+                strawberry
+              </span>
+            </span>
+            {"\n"}
+            <span className="line" />
+            {"\n"}
+            <span className="line">
+              <span style={{ color: "var(--shiki-token-function)" }}>
+                @strawberry
+              </span>
+              <span style={{ color: "var(--shiki-token-punctuation)" }}>.</span>
+              <span style={{ color: "var(--shiki-token-function)" }}>type</span>
+            </span>
+            {"\n"}
+            <span className="line">
+              <span style={{ color: "var(--shiki-token-keyword)" }}>class</span>
+              <span style={{ color: "var(--shiki-color-text)" }}> </span>
+              <span style={{ color: "var(--shiki-token-function)" }}>User</span>
+              <span style={{ color: "var(--shiki-color-text)" }}>:</span>
+            </span>
+            {"\n"}
+            <span className="line">
+              <span style={{ color: "var(--shiki-color-text)" }}>
+                {"    "}name
+              </span>
+              <span style={{ color: "var(--shiki-token-punctuation)" }}>:</span>
+              <span style={{ color: "var(--shiki-color-text)" }}> </span>
+              <span style={{ color: "var(--shiki-token-constant)" }}>str</span>
+            </span>
+            {"\n"}
+            <span className="line" />
+            {"\n"}
+            <span className="line">
+              <span style={{ color: "var(--shiki-color-text)" }}>{"    "}</span>
+              <span style={{ color: "var(--shiki-token-function)" }}>
+                <span data-node-id="1">@</span>
+                <span data-node-id="1">s</span>
+                <span data-node-id="1">t</span>
+                <span data-node-id="1">r</span>
+                <span data-node-id="1">a</span>
+                <span data-node-id="1">w</span>
+                <span data-node-id="1">b</span>
+                <span data-node-id="1">e</span>
+                <span data-node-id="1">r</span>
+                <span data-node-id="1">r</span>
+                <span data-node-id="1">y</span>
+              </span>
+              <span style={{ color: "var(--shiki-token-punctuation)" }}>.</span>
+              <span style={{ color: "var(--shiki-token-function)" }}>
+                field
+              </span>
+            </span>
+            {"\n"}
+            <span className="line">
+              <span style={{ color: "var(--shiki-color-text)" }}>{"    "}</span>
+              <span style={{ color: "var(--shiki-token-keyword)" }}>def</span>
+              <span style={{ color: "var(--shiki-color-text)" }}> </span>
+              <span style={{ color: "var(--shiki-token-function)" }}>
+                is_admin
+              </span>
+              <span style={{ color: "var(--shiki-color-text)" }}>(</span>
+              <span style={{ color: "var(--shiki-token-parameter)" }}>
+                self
+              </span>
+              <span style={{ color: "var(--shiki-color-text)" }}>) </span>
+              <span style={{ color: "var(--shiki-token-punctuation)" }}>
+                -&gt;
+              </span>
+              <span style={{ color: "var(--shiki-color-text)" }}> </span>
+              <span style={{ color: "var(--shiki-token-constant)" }}>bool</span>
+              <span style={{ color: "var(--shiki-color-text)" }}>:</span>
+            </span>
+            {"\n"}
+            <span className="line">
+              <span style={{ color: "var(--shiki-color-text)" }}>
+                {"        "}
+              </span>
+              <span style={{ color: "var(--shiki-token-keyword)" }}>
+                return
+              </span>
+              <span style={{ color: "var(--shiki-color-text)" }}> self</span>
+              <span style={{ color: "var(--shiki-token-punctuation)" }}>.</span>
+              <span style={{ color: "var(--shiki-color-text)" }}>name </span>
+              <span style={{ color: "var(--shiki-token-keyword)" }}>==</span>
+              <span style={{ color: "var(--shiki-color-text)" }}> </span>
+              <span style={{ color: "var(--shiki-token-string-expression)" }}>
+                "Patrick"
+              </span>
+            </span>
+            {"\n"}
+            <span className="line" />
+          </code>
+        </pre>
+      </code>
+    ),
+    notes: [
+      {
+        id: "1",
+        text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error cum pariatur earum harum adipisci, voluptatibus excepturi corporis eligendi consequuntur blanditiis hic impedit porro! Voluptatem magni perferendis itaque voluptates et quisquam.",
+      },
+    ],
+  },
+};

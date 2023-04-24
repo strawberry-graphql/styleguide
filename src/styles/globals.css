@@ -130,6 +130,10 @@
     @apply p-24;
     overflow: visible !important;
   }
+
+  .codebox [data-node-id] {
+    background-color: #eaae7557;
+  }
 }
 
 :root {
