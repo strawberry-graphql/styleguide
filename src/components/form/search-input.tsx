@@ -12,6 +12,7 @@ export const SearchInput = ({
   placeholder,
   value,
   onChange,
+  onClick,
   error,
   required,
   disabled,
@@ -25,6 +26,7 @@ export const SearchInput = ({
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   error?: string;
   required?: boolean;
   disabled?: boolean;
@@ -35,24 +37,24 @@ export const SearchInput = ({
   return (
     <div className={className}>
       <div className="relative inline-block w-full">
-        <BaseInput
-          type="search"
-          id={id}
-          placeholder={placeholder}
-          value={value}
-          name={name}
-          onChange={onChange}
-          required={required}
-          disabled={disabled}
-          onFocus={onFocus}
-          className={clsx("pl-48", {
-            "border-strawberry": error,
-            "border-green": success,
-          })}
-        />
+        <div
+          onClick={onClick}
+          className={clsx(
+            "border-[1.5px] border-g-100 dark:border-g-900 rounded-[30px] px-24 py-12 typography-paragraph-2",
+            "placeholder:text-g-500 text-g-700 dark:text-g-50 disabled:text-g-400",
+            "bg-transparent input-border outline-none",
+            "w-full cursor-pointer pl-48",
+            {
+              "border-strawberry": error,
+              "border-green": success,
+            }
+          )}
+        >
+          {placeholder}
 
-        <div className="absolute top-0 left-4 h-full flex items-center px-12 text-g-500">
-          <SearchIcon />
+          <div className="absolute top-0 left-4 h-full flex items-center px-12 text-g-500">
+            <SearchIcon />
+          </div>
         </div>
       </div>
 

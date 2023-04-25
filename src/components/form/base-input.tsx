@@ -7,6 +7,7 @@ export const BaseInput = ({
   value,
   name,
   onChange,
+  onClick,
   required,
   disabled,
   className,
@@ -18,6 +19,7 @@ export const BaseInput = ({
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   error?: string;
   required?: boolean;
   disabled?: boolean;
@@ -35,6 +37,7 @@ export const BaseInput = ({
     required={required}
     disabled={disabled}
     onFocus={onFocus}
+    onClick={onClick}
     className={clsx(
       "border-[1.5px] border-g-100 dark:border-g-900 rounded-[30px] px-24 py-12 typography-paragraph-2",
       "placeholder:text-g-500 text-g-700 dark:text-g-50 disabled:text-g-400",

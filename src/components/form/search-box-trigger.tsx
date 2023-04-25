@@ -12,18 +12,14 @@ export const SearchBoxTrigger = () => {
     <>
       <SearchInput
         placeholder="Search"
-        onFocus={(e) => {
+        onClick={(e) => {
           e.preventDefault();
-          e.target.blur();
+
           setSearchBoxOpen(true);
         }}
       />
 
-      <Modal
-        open={searchBoxOpen}
-        onClose={() => setSearchBoxOpen(false)}
-        naked
-      >
+      <Modal open={searchBoxOpen} onClose={() => setSearchBoxOpen(false)} naked>
         <SearchBox />
       </Modal>
     </>
