@@ -117,12 +117,13 @@ export const MainNav = ({ activeSection }: { activeSection?: string }) => {
       <li onMouseEnter={handleHover}>
         <Link href="https://discord.gg/2cKUVkx">Discord</Link>
       </li>
-      <li onMouseEnter={handleHover}>
+
+      {/* <li onMouseEnter={handleHover}>
         <Link href="/blog">Blog</Link>
-      </li>
+      </li> */}
 
       <li onMouseEnter={handleHover}>
-        <Link href="/play">Playground</Link>
+        <Link href="https://play.strawberry.rocks">Playground</Link>
       </li>
 
       <span
