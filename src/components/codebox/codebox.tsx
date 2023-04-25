@@ -21,7 +21,6 @@ export const Codebox = ({
 
   const handleMouseEnter = useCallback(
     (e: MouseEvent) => {
-      console.log(e.currentTarget);
       if (e.currentTarget) {
         // @ts-ignore
         const noteId = e.currentTarget.dataset.nodeId!;
@@ -49,8 +48,6 @@ export const Codebox = ({
     // add event listener to all span with data-node-id
     const spans =
       ref.current?.querySelectorAll<HTMLSpanElement>("span[data-node-id]");
-
-    console.log(spans);
 
     if (spans) {
       spans.forEach((span) => {
