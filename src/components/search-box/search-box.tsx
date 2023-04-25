@@ -94,7 +94,7 @@ const AlgoliaLogo = () => (
 );
 
 const Inner = () => {
-  const { query, refine, clear } = useSearchBox();
+  const { refine } = useSearchBox();
 
   const { groups } = useGroupedResults();
 
@@ -121,7 +121,7 @@ const Inner = () => {
 
         <div className="flex justify-center items-center text-g-700 border-t border-b border-g-100 dark:border-transparency-light">
           <div className="flex-1 py-32 px-24 min-h-[140px] max-h-[65vh] overflow-auto">
-            <Combobox.Options>
+            <Combobox.Options static>
               {groups.map((group) => {
                 return (
                   <div key={group.name} className="mb-32">
@@ -150,10 +150,6 @@ const Inner = () => {
             </Combobox.Options>
           </div>
         </div>
-
-        {/* <Combobox.Options className="min-h-[140px] flex justify-center items-center text-g-700 border-t border-b border-g-100 dark:border-transparency-light">
-    <Paragraph>No recent searches</Paragraph>
-  </Combobox.Options> */}
 
         <footer className="p-24 flex justify-end items-center space-x-16">
           <Paragraph variant="small">Search by</Paragraph>
