@@ -41,11 +41,7 @@ export const Result = ({
         }
       )}
     >
-      <span
-        dangerouslySetInnerHTML={{
-          __html: result.html,
-        }}
-      />
+      <span>{result.name}</span>
       <Arrow />
     </div>
   );
