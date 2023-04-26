@@ -11,7 +11,11 @@ export default meta;
 type Story = StoryObj<typeof SearchBoxTrigger>;
 
 export const Default: Story = {
+  args: {},
+};
+
+export const TriggerOnly: Story = {
   args: {
-    placeholder: "Placeholder",
+    triggerOnly: true,
   },
 };
