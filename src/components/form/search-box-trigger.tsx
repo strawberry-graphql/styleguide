@@ -14,7 +14,6 @@ export const SearchBoxTrigger = ({
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
-      // if pressing cmd+k, we want to open the search box
       const cmdAndKPressed =
         (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k";
 

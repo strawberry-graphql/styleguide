@@ -93,81 +93,107 @@ const AlgoliaLogo = () => (
   </svg>
 );
 
-const Inner = () => {
+const Inner = ({
+  onChange,
+  onActiveOptionChange,
+}: {
+  onChange?: (url: string) => void;
+  onActiveOptionChange?: (url: string | null) => void;
+}) => {
   const { refine } = useSearchBox();
 
   const { groups } = useGroupedResults();
 
   return (
-    <Combobox>
-      <div
-        className={clsx(
-          "min-w-[320px] sm:min-w-[500px] md:min-w-[600px] border border-g-100 rounded-[16px]",
-          "bg-white bg-opacity-75 backdrop-blur-md",
-          "dark:bg-footer-dark dark:border-transparency-light dark:backdrop-blur-md"
-        )}
-      >
-        <header className="flex items-center px-24">
-          <SearchIcon />
+    <Combobox onChange={onChange}>
+      {({ ...props }) => {
+        if (onActiveOptionChange) {
+          onActiveOptionChange(props.activeOption);
+        }
 
-          <Combobox.Input
-            type="search"
-            className="ml-16 flex-1 py-24 typography-paragraph-2 placeholder:text-g-500 text-g-900 dark:text-g-50 outline-none bg-transparent placeholder:dark:text-g-700"
-            placeholder="Search documentation"
-            autoFocus
-            onChange={(event) => refine(event.target.value)}
-          />
-        </header>
+        return (
+          <div
+            className={clsx(
+              "min-w-[320px] sm:min-w-[500px] md:min-w-[600px] border border-g-100 rounded-[16px]",
+              "bg-white bg-opacity-75 backdrop-blur-md",
+              "dark:bg-footer-dark dark:border-transparency-light dark:backdrop-blur-md"
+            )}
+          >
+            <header className="flex items-center px-24">
+              <SearchIcon />
 
-        <div className="flex justify-center items-center text-g-700 border-t border-b border-g-100 dark:border-transparency-light">
-          <div className="flex-1 py-32 px-24 min-h-[140px] max-h-[65vh] overflow-auto">
-            <Combobox.Options static>
-              {groups.map((group) => {
-                return (
-                  <div key={group.name} className="mb-32">
-                    <Paragraph className="font-bold mb-16 dark:text-white">
-                      {group.name}
-                    </Paragraph>
+              <Combobox.Input
+                type="search"
+                className="ml-16 flex-1 py-24 typography-paragraph-2 placeholder:text-g-500 text-g-900 dark:text-g-50 outline-none bg-transparent placeholder:dark:text-g-700"
+                placeholder="Search documentation"
+                autoFocus
+                onChange={(event) => refine(event.target.value)}
+              />
+            </header>
 
-                    <ul className="space-y-8">
-                      {group.results.map((result) => {
-                        return (
-                          <Combobox.Option key={result.id} value={result.id}>
-                            {({ active, selected }) => (
-                              <Result
-                                active={active}
-                                selected={selected}
-                                result={result}
-                              />
-                            )}
-                          </Combobox.Option>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                );
-              })}
-            </Combobox.Options>
+            <div className="flex justify-center items-center text-g-700 border-t border-b border-g-100 dark:border-transparency-light">
+              <div className="flex-1 py-32 px-24 min-h-[140px] max-h-[65vh] overflow-auto">
+                <Combobox.Options static>
+                  {groups.map((group) => {
+                    return (
+                      <div key={group.name} className="mb-32">
+                        <Paragraph className="font-bold mb-16 dark:text-white">
+                          {group.name}
+                        </Paragraph>
+
+                        <ul className="space-y-8">
+                          {group.results.map((result) => {
+                            return (
+                              <Combobox.Option
+                                key={result.id}
+                                value={result.url}
+                                onFocus={() => {
+                                  console.log(result.url);
+                                }}
+                              >
+                                {({ active, selected }) => (
+                                  <Result
+                                    active={active}
+                                    selected={selected}
+                                    result={result}
+                                  />
+                                )}
+                              </Combobox.Option>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </Combobox.Options>
+              </div>
+            </div>
+
+            <footer className="p-24 flex justify-end items-center space-x-16">
+              <Paragraph variant="small">Search by</Paragraph>
+              <a href="/todo">
+                <AlgoliaLogo />
+              </a>
+            </footer>
           </div>
-        </div>
-
-        <footer className="p-24 flex justify-end items-center space-x-16">
-          <Paragraph variant="small">Search by</Paragraph>
-          <a href="/todo">
-            <AlgoliaLogo />
-          </a>
-        </footer>
-      </div>
+        );
+      }}
     </Combobox>
   );
 };
 
-export const SearchBox = () => {
+export const SearchBox = ({
+  onChange,
+  onActiveOptionChange,
+}: {
+  onChange?: (url: string) => void;
+  onActiveOptionChange?: (url: string | null) => void;
+}) => {
   return (
     <InstantSearch searchClient={searchClient} indexName="strawberry">
       <Configure hitsPerPage={10} distinct />
 
-      <Inner />
+      <Inner onChange={onChange} onActiveOptionChange={onActiveOptionChange} />
     </InstantSearch>
   );
 };
