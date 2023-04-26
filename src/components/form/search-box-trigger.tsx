@@ -7,8 +7,12 @@ import { SearchInput } from "./search-input";
 
 export const SearchBoxTrigger = ({
   triggerOnly = false,
+  onChange,
+  onActiveOptionChange,
 }: {
   triggerOnly?: boolean;
+  onChange?: (url: string) => void;
+  onActiveOptionChange?: (url: string | null) => void;
 }) => {
   const [searchBoxOpen, setSearchBoxOpen] = useState(false);
 
@@ -44,7 +48,10 @@ export const SearchBoxTrigger = ({
       )}
 
       <Modal open={searchBoxOpen} onClose={() => setSearchBoxOpen(false)} naked>
-        <SearchBox />
+        <SearchBox
+          onChange={onChange}
+          onActiveOptionChange={onActiveOptionChange}
+        />
       </Modal>
     </>
   );
