@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Modal } from "../modal/modal";
 import { SearchBox } from "../search-box/search-box";
 import { SearchInput } from "./search-input";
@@ -34,6 +34,14 @@ export const SearchBoxTrigger = ({
     };
   }, []);
 
+  const handleOnChange = useCallback(
+    (url: string) => {
+      onChange?.(url);
+      setSearchBoxOpen(false);
+    },
+    [onChange]
+  );
+
   return (
     <>
       {triggerOnly ? null : (
@@ -49,7 +57,7 @@ export const SearchBoxTrigger = ({
 
       <Modal open={searchBoxOpen} onClose={() => setSearchBoxOpen(false)} naked>
         <SearchBox
-          onChange={onChange}
+          onChange={handleOnChange}
           onActiveOptionChange={onActiveOptionChange}
         />
       </Modal>
