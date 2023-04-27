@@ -6,6 +6,7 @@ import { Heading } from "../typography/heading";
 import { Paragraph } from "../typography/paragraph";
 
 import { DocsWrapper, DocsContent } from "./docs";
+import { SearchBoxTrigger } from "../form/search-box-trigger";
 
 const meta: Meta<typeof DocsWrapper> = {
   title: "Layout/Docs",
@@ -28,6 +29,8 @@ export const Default: Story = {
         name: `Getting started ${i}`,
       })),
     })),
+
+    searchBoxTrigger: <SearchBoxTrigger />,
 
     children: (
       <>

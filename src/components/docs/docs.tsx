@@ -12,15 +12,17 @@ export const DocsContent = ({ children }: { children: React.ReactNode }) => (
 export const DocsWrapper = ({
   sections,
   children,
+  searchBoxTrigger,
 }: {
   sections: Section[];
   children: React.ReactNode;
+  searchBoxTrigger: React.ReactNode;
 }) => {
   return (
     <div className="md:grid grid-cols-[320px_1fr]">
       <div className="w-[320px] hidden md:block pl-40 pr-16 overflow-scroll">
         <Spacer size={16} />
-        <SearchBoxTrigger />
+        {searchBoxTrigger}
         <Spacer size={40} />
         <SidebarNav sections={sections} />
       </div>
