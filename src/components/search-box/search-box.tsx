@@ -118,7 +118,7 @@ const Inner = (props: {
   };
 
   return (
-    <Combobox onChange={onChange}>
+    <Combobox onChange={onChange} value="">
       {({ ...props }) => {
         if (onActiveOptionChange) {
           onActiveOptionChange(props.activeOption);
