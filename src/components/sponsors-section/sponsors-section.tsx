@@ -66,7 +66,7 @@ export const SponsorsSection = ({
   const downloadsLastWeek = roundDownToNearest(downloads.lastWeek, 5000);
 
   return (
-    <section className="text-center">
+    <section className="text-center max-w-screen-lg mx-auto">
       <div className="px-16 md:px-24">
         <Heading>Discover the sponsors that make Strawberry possible.</Heading>
 
