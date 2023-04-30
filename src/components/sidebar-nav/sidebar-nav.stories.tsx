@@ -42,6 +42,10 @@ const sections = [
       },
     ],
   },
+  {
+    name: "A section without links",
+    href: "/abc",
+  },
 ];
 
 export const Default: Story = {

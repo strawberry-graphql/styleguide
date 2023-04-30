@@ -4,12 +4,40 @@ import Link from "next/link";
 import { ArrowUpIcon } from "../icons/arrow-up";
 import { usePathname } from "next/navigation";
 
-export type Section = {
-  name: string;
-  links: {
-    href: string;
-    name: string;
-  }[];
+export type Section =
+  | {
+      name: string;
+      links: {
+        href: string;
+        name: string;
+      }[];
+    }
+  | {
+      name: string;
+      links?: undefined;
+      href: string;
+    };
+
+const TopLevelTitle = ({
+  children,
+  as,
+  ...props
+}: {
+  href?: string;
+  children: React.ReactNode;
+  as?: string;
+}) => {
+  const Component = as || "summary";
+
+  return (
+    // @ts-ignore
+    <Component
+      {...props}
+      className="text-g-900 dark:text-g-50 typography-label list-none relative flex justify-between items-center cursor-pointer"
+    >
+      {children}
+    </Component>
+  );
 };
 
 export const SidebarNav = ({ sections }: { sections: Section[] }) => {
@@ -18,6 +46,15 @@ export const SidebarNav = ({ sections }: { sections: Section[] }) => {
   return (
     <nav>
       {sections.map((section) => {
+        if (!section.links) {
+          return (
+            <TopLevelTitle key={section.name} href={section.href} as="a">
+              {section.name}
+              <ArrowUpIcon className="text-g-500 dark:text-g-700 rotate-90" />
+            </TopLevelTitle>
+          );
+        }
+
         const hasActiveLink = section.links.some(
           (link) => link.href == pathname
         );
@@ -28,11 +65,11 @@ export const SidebarNav = ({ sections }: { sections: Section[] }) => {
             className="mb-16 pb-16 border-b border-g-100 dark:border-g-900 group"
             open={hasActiveLink}
           >
-            <summary className="text-g-900 dark:text-g-50 typography-label list-none relative flex justify-between items-center cursor-pointer">
+            <TopLevelTitle>
               {section.name}
 
               <ArrowUpIcon className="text-g-500 dark:text-g-700 group-open:rotate-180" />
-            </summary>
+            </TopLevelTitle>
 
             <ul>
               {section.links.map((link) => (
