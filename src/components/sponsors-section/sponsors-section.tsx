@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Button } from "../button/button";
 import { Heading } from "../typography/heading";
+import Balancer from "react-wrap-balancer";
 
 type Sponsor = {
   id?: string;
@@ -68,10 +69,16 @@ export const SponsorsSection = ({
   return (
     <section className="text-center max-w-screen-lg mx-auto">
       <div className="px-16 md:px-24">
-        <Heading>Discover the sponsors that make Strawberry possible.</Heading>
+        <Heading>
+          <Balancer>
+            Discover the sponsors that make Strawberry possible.
+          </Balancer>
+        </Heading>
 
         <Heading level={4} className="mt-24 mb-48 text-g-700 dark:text-g-500">
-          More than {downloadsLastWeek.toLocaleString()} downloads last week
+          <Balancer>
+            More than {downloadsLastWeek.toLocaleString()} downloads last week
+          </Balancer>
         </Heading>
 
         <Button as="a" href="/sponsor-us">

@@ -1,5 +1,6 @@
 import { Card, Icons } from "../card/card";
 import { Heading } from "../typography/heading";
+import Balancer from "react-wrap-balancer";
 
 const FeatureItem = ({
   title,
@@ -26,7 +27,9 @@ type Feature = {
 export const FeaturesSection = ({ features }: { features: Feature[] }) => {
   return (
     <section className="text-center">
-      <Heading>Modern Python, modern features</Heading>
+      <Heading>
+        <Balancer>Modern Python, modern features</Balancer>
+      </Heading>
 
       <ul className="mt-80 gap-24 text-left overflow-scroll flex snap-x px-16 md:px-24 lg:columns-4 lg:block max-w-screen-xl mx-auto">
         {features.map((feature) => (

@@ -1,6 +1,7 @@
 import { Button } from "../button/button";
 import { Codebox } from "../codebox/codebox";
 import { Display } from "../typography/display";
+import Balancer from "react-wrap-balancer";
 
 const code = `<span class="line"><span style="color: var(--shiki-token-keyword)">import</span><span style="color: var(--shiki-color-text)"> strawberry</span></span>
 <span class="line"></span>
@@ -17,8 +18,10 @@ export const Hero = () => {
   return (
     <div className="p-16 md:px-32 text-center space-y-48 max-w-screen-lg mx-auto">
       <Display>
-        The new <span className="text-strawberry">GraphQL library</span> for
-        Python 3, inspired by dataclasses.
+        <Balancer>
+          The new <span className="text-strawberry">GraphQL library</span> for
+          Python 3, inspired by dataclasses.
+        </Balancer>
       </Display>
 
       <Button as="a" href="/docs">
