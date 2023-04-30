@@ -46,6 +46,19 @@ const sections = [
     name: "A section without links",
     href: "/abc",
   },
+  {
+    name: "Another section without links",
+    href: "/abc",
+  },
+  {
+    name: "A section",
+    links: [
+      {
+        href: "/abc",
+        name: "Schema basics",
+      },
+    ],
+  },
 ];
 
 export const Default: Story = {

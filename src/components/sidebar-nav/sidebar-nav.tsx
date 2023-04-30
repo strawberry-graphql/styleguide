@@ -48,10 +48,15 @@ export const SidebarNav = ({ sections }: { sections: Section[] }) => {
       {sections.map((section) => {
         if (!section.links) {
           return (
-            <TopLevelTitle key={section.name} href={section.href} as="a">
-              {section.name}
-              <ArrowUpIcon className="text-g-500 dark:text-g-700 rotate-90" />
-            </TopLevelTitle>
+            <div
+              className="mb-16 pb-16 border-b border-g-100 dark:border-g-900 "
+              key={section.name}
+            >
+              <TopLevelTitle href={section.href} as="a">
+                {section.name}
+                <ArrowUpIcon className="text-g-500 dark:text-g-700 rotate-90" />
+              </TopLevelTitle>
+            </div>
           );
         }
 
