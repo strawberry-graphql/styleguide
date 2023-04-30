@@ -32,8 +32,6 @@ export const ExtensionCard = ({ name, description, tags, href }: Extension) => {
           ))}
         </ul>
       </div>
-
-      <a href="" className="ml-auto" target="_blank" rel="noreferrer"></a>
     </Link>
   );
 };
