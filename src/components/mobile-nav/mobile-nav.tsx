@@ -17,7 +17,7 @@ export const MobileNav = ({ sections }: { sections: Section[] }) => {
   return (
     <div
       className={clsx(
-        "fixed inset-0 w-full p-16 max-h-[calc(100vh-140px)]",
+        "fixed bottom-0 w-full p-16 max-h-screen",
         "bg-white bg-opacity-75 backdrop-blur-md dark:bg-black dark:bg-opacity-75",
         "overflow-scroll z-50"
       )}
