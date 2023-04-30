@@ -1,4 +1,3 @@
-import { SearchBoxTrigger } from "../form/search-box-trigger";
 import { Section, SidebarNav } from "../sidebar-nav/sidebar-nav";
 import { Spacer } from "../spacer/spacer";
 

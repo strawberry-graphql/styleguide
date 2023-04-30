@@ -128,7 +128,7 @@ const Inner = (props: {
           <div
             className={clsx(
               "min-w-[320px] sm:min-w-[500px] md:min-w-[600px] border border-g-100 rounded-[16px]",
-              "bg-white bg-opacity-75 backdrop-blur-md",
+              "bg-white bg-opacity-75 backdrop-blur-[200px]",
               "dark:bg-footer-dark dark:border-transparency-light dark:backdrop-blur-md"
             )}
           >
