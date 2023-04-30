@@ -28,7 +28,7 @@ export const FeaturesSection = ({ features }: { features: Feature[] }) => {
   return (
     <section className="text-center">
       <Heading>
-        <Balancer>Modern Python, modern features</Balancer>
+        <Balancer>Modern Python, modern features.</Balancer>
       </Heading>
 
       <ul className="mt-80 gap-24 text-left overflow-scroll flex snap-x px-16 md:px-24 lg:columns-4 lg:block max-w-screen-xl mx-auto">
