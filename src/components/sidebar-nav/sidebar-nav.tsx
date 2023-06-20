@@ -64,6 +64,29 @@ export const SidebarNav = ({ sections }: { sections: Section[] }) => {
           (link) => link.href == pathname
         );
 
+        if (section.name === "Docs") {
+          return (
+            <ul
+              key={section.name}
+              className="mb-16 pb-16 border-b border-g-100 dark:border-g-900 group"
+            >
+              {section.links.map((link) => (
+                <li
+                  key={link.href}
+                  className={clsx(
+                    "mt-16 typography-paragraph-2 font-bold text-g-500 hover:text-strawberry",
+                    {
+                      "text-strawberry": pathname == link.href,
+                    }
+                  )}
+                >
+                  <Link href={link.href}>{link.name}</Link>
+                </li>
+              ))}
+            </ul>
+          );
+        }
+
         return (
           <details
             key={section.name}
