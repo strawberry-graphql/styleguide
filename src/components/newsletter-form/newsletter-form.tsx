@@ -6,7 +6,7 @@ import { Input } from "../form/input";
 import { PlusIcon } from "../icons/plus";
 import { UserIcon } from "../icons/user";
 import { Heading } from "../typography/heading";
-import { useMailchimp } from "@/hooks/use-mailchimp";
+import { useMailchimp } from "../../hooks/use-mailchimp";
 
 const url =
   "https://twitter.us4.list-manage.com/subscribe/post?u=4ad955ae4a0b2d7c67f48323e&amp;id=5e44c190e6";

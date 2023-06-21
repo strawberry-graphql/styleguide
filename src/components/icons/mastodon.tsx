@@ -3,7 +3,7 @@ import * as React from "react";
 export const MastodonCircleIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg width={40} height={40} viewBox="0 0 40 40" fill="none" {...props}>
-      <circle cx={20} cy={20} r={20} className="fill-black dark:fill-white" />
+      <circle cx={20} cy={20} r={20} className="fill-current" />
       <path
         fillRule="evenodd"
         clipRule="evenodd"

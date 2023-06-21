@@ -40,7 +40,10 @@ const Nav = () => {
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-16">
         {links.map(({ href, label }) => (
           <li key={`${href}${label}`}>
-            <Link href={href} className="typography-label">
+            <Link
+              href={href}
+              className="typography-label hover:text-strawberry"
+            >
               {label}
             </Link>
           </li>
@@ -58,22 +61,35 @@ const SocialNav = ({ className }: { className?: string }) => {
           <Link
             href="https://github.com/strawberry-graphql/strawberry"
             rel="me"
+            className="text-black dark:text-white hover:!text-strawberry"
           >
             <GithubCircleIcon />
           </Link>
         </li>
         <li>
-          <Link href="https://twitter.com/strawberry_gql" rel="me">
+          <Link
+            href="https://twitter.com/strawberry_gql"
+            rel="me"
+            className="text-black dark:text-white hover:!text-strawberry"
+          >
             <TwitterCircleIcon />
           </Link>
         </li>
         <li>
-          <Link href="https://farbun.social/@strawberry" rel="me">
+          <Link
+            href="https://farbun.social/@strawberry"
+            rel="me"
+            className="text-black dark:text-white hover:!text-strawberry"
+          >
             <MastodonCircleIcon />
           </Link>
         </li>
         <li>
-          <Link href="/discord" rel="me">
+          <Link
+            href="/discord"
+            rel="me"
+            className="text-black dark:text-white hover:!text-strawberry"
+          >
             <DiscordCircleIcon />
           </Link>
         </li>
