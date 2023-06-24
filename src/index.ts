@@ -38,3 +38,5 @@ export { FeedbackForm } from "./components/feedback-form/feedback-form";
 export { Mermaid } from "./components/mermaid/mermaid";
 export { ExtensionCard } from "./components/extension-card/extension-card";
 export { ExtensionsGrid } from "./components/extensions-grid/extensions-grid";
+export { Select } from "./components/form/select";
+export { Input } from "./components/form/input";
