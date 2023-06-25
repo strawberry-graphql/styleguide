@@ -3,7 +3,7 @@
   "version": "0.8.0",
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && tsc && cp package.json README.md ./dist && tailwind --input ./src/styles/globals.css --output dist/index.css",
+    "build": "npm run clean && tsc && cp package.json README.md tailwind.config.js ./dist && tailwind --input ./src/styles/globals.css --output dist/index.css",
     "dev": "storybook dev -p 6006 --no-open",
     "prepublish": "pnpm run build",
     "publish:local": "pnpm version patch --force && pnpm run build && yalc publish --push",

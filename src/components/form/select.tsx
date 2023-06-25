@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { BaseInput } from "./base-input";
 import { ErrorLabel, SuccessLabel } from "./labels";
 import { ArrowUpIcon } from "../icons/arrow-up";
 
