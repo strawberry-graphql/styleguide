@@ -19,7 +19,7 @@ export const Select = ({
 }: {
   name?: string;
   id?: string;
-  options: { label: string; value: string; disabled: boolean }[];
+  options: { label: string; value: string; disabled?: boolean }[];
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
