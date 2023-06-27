@@ -40,3 +40,4 @@ export { ExtensionCard } from "./components/extension-card/extension-card";
 export { ExtensionsGrid } from "./components/extensions-grid/extensions-grid";
 export { Select } from "./components/form/select";
 export { Input } from "./components/form/input";
+export { ArticleHeader } from "./components/article-header/article-header";
