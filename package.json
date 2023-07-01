@@ -1,6 +1,6 @@
 {
   "name": "@strawberry-graphql/styleguide",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && tsc && cp package.json README.md tailwind.config.js ./dist && tailwind --input ./src/styles/globals.css --output dist/index.css",
