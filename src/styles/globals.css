@@ -126,7 +126,7 @@
   }
 
   .codebox {
-    overflow: scroll;
+    overflow: auto;
     @apply flex;
   }
 

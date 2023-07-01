@@ -143,3 +143,15 @@ export const Notes: Story = {
     ],
   },
 };
+
+export const LongText: Story = {
+  args: {
+    children: (
+      <code
+        dangerouslySetInnerHTML={{
+          __html: [pythonExample, pythonExample, pythonExample].join("\n"),
+        }}
+      />
+    ),
+  },
+};
