@@ -31,7 +31,7 @@ export const FeaturesSection = ({ features }: { features: Feature[] }) => {
         <Balancer>Modern Python, modern features.</Balancer>
       </Heading>
 
-      <ul className="mt-80 gap-24 text-left overflow-scroll flex snap-x px-16 md:px-24 lg:columns-4 lg:block max-w-screen-xl mx-auto">
+      <ul className="mt-80 gap-24 text-left overflow-auto flex snap-x px-16 md:px-24 lg:columns-4 lg:block max-w-screen-xl mx-auto">
         {features.map((feature) => (
           <FeatureItem
             key={feature.title}

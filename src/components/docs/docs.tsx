@@ -19,7 +19,7 @@ export const DocsWrapper = ({
 }) => {
   return (
     <div className="md:grid grid-cols-[320px_1fr]">
-      <div className="w-[320px] hidden md:block pl-40 pr-16 overflow-scroll">
+      <div className="w-[320px] hidden md:block pl-40 pr-16 overflow-auto">
         <Spacer size={16} />
         {searchBoxTrigger}
         <Spacer size={40} />

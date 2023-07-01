@@ -19,7 +19,7 @@ export const MobileNav = ({ sections }: { sections: Section[] }) => {
       className={clsx(
         "fixed bottom-0 w-full p-16 max-h-[80vh]",
         "bg-white bg-opacity-75 backdrop-blur-lg dark:bg-black dark:bg-opacity-75",
-        "overflow-scroll z-50"
+        "overflow-auto z-50"
       )}
     >
       <header className="mb-32 flex justify-between">

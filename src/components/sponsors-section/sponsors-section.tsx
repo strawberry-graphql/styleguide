@@ -86,7 +86,7 @@ export const SponsorsSection = ({
         </Button>
       </div>
 
-      <ul className="mt-80 text-left overflow-scroll flex justify-center snap-x px-24 max-w-screen-xl mx-auto gap-72">
+      <ul className="mt-80 text-left overflow-auto flex justify-center snap-x px-24 max-w-screen-xl mx-auto gap-72">
         {sponsors.map((sponsor) => (
           <Sponsor
             key={sponsor.name}
