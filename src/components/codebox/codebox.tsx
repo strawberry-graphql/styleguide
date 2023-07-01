@@ -73,10 +73,12 @@ export const Codebox = ({
       <div
         className={clsx(
           "text-white border-transparency-light dark:border-g-900 bg-g-900 dark:bg-transparency-dark",
-          "codebox border rounded-[12px] max-h-[600px]"
+          "border rounded-[12px] overflow-hidden"
         )}
       >
-        <pre {...props}>{children}</pre>
+        <div className="max-h-[600px] codebox">
+          <pre {...props}>{children}</pre>
+        </div>
       </div>
 
       {visibleNote && (
