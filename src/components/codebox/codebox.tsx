@@ -76,7 +76,7 @@ export const Codebox = ({
           "border rounded-[12px] overflow-hidden"
         )}
       >
-        <div className="max-h-[600px] codebox">
+        <div className="codebox">
           <pre {...props}>{children}</pre>
         </div>
       </div>
