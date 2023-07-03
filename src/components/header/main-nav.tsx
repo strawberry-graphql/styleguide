@@ -1,13 +1,18 @@
 "use client";
 
 import clsx from "clsx";
-import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 
 const Link = ({
   href,
   children,
   active = false,
-  showUnderline = false,
 }: {
   href: string;
   children: React.ReactNode;
@@ -31,10 +36,10 @@ const Link = ({
           "absolute rounded-sm bottom-0 left-0 right-0 h-1 md:h-2",
           "bg-gradient-to-r md:from-magenta md:to-orange",
           "group-hover:from-magenta group-hover:to-orange",
-          "bg-g-100",
+          "bg-g-100 transition-opacity",
           "group-hover:h-1 group-hover:md:h-2",
-          "transition-opacity",
-          { "md:hidden": !showUnderline },
+          "md:group-hover/nav:opacity-0 md:delay-1000 md:group-hover/nav:delay-0",
+          { "md:hidden": !active },
           { "opacity-100 from-magenta to-orange h-2 group-hover:h-2": active }
         )}
       />
@@ -43,12 +48,10 @@ const Link = ({
 };
 
 export const MainNav = ({ activeSection }: { activeSection?: string }) => {
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
   const navRef = useRef<HTMLUListElement>(null);
   const lineRef = useRef<HTMLSpanElement>(null);
-  // we use this to force showing the underline before the animateToActive code
-  // runs, so that the underline is visible when the page loads, it's ugly but
-  // it works :)
-  const [shouldShowUnderline, setShouldShowUnderline] = useState(true);
 
   const setPosition = (element: HTMLElement | null) => {
     const left = element ? element.offsetLeft : 0;
@@ -84,13 +87,15 @@ export const MainNav = ({ activeSection }: { activeSection?: string }) => {
 
   useLayoutEffect(() => {
     animateToActive();
-
-    setShouldShowUnderline(false);
   }, [activeSection, animateToActive]);
+
+  useEffect(() => {
+    setShouldAnimate(true);
+  }, []);
 
   return (
     <ul
-      className="w-full md:flex md:space-x-56 md:w-auto relative"
+      className="w-full md:flex md:space-x-56 md:w-auto relative group/nav"
       onMouseLeave={handleMouseLeave}
       ref={navRef}
     >
@@ -100,11 +105,7 @@ export const MainNav = ({ activeSection }: { activeSection?: string }) => {
           active: activeSection == "docs",
         })}
       >
-        <Link
-          href="/docs"
-          active={activeSection == "docs"}
-          showUnderline={shouldShowUnderline}
-        >
+        <Link href="/docs" active={activeSection == "docs"}>
           Docs
         </Link>
       </li>
@@ -117,9 +118,16 @@ export const MainNav = ({ activeSection }: { activeSection?: string }) => {
         <Link href="https://discord.gg/2cKUVkx">Discord</Link>
       </li>
 
-      {/* <li onMouseEnter={handleHover}>
-        <Link href="/blog">Blog</Link>
-      </li> */}
+      <li
+        onMouseEnter={handleHover}
+        className={clsx({
+          active: activeSection == "blog",
+        })}
+      >
+        <Link href="/blog" active={activeSection == "blog"}>
+          Blog
+        </Link>
+      </li>
 
       <li onMouseEnter={handleHover}>
         <Link href="https://play.strawberry.rocks">Playground</Link>
@@ -130,7 +138,9 @@ export const MainNav = ({ activeSection }: { activeSection?: string }) => {
         className={clsx(
           "!m-0 absolute rounded-sm bottom-0 left-0 h-2",
           "bg-gradient-to-r from-magenta to-orange hidden md:block",
-          "transition-all ease-in-out duration-500"
+          {
+            "transition-all ease-in-out duration-500": shouldAnimate,
+          }
         )}
       />
     </ul>

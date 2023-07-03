@@ -26,6 +26,12 @@ export const Primary: Story = {
   },
 };
 
+export const ActiveBlog: Story = {
+  args: {
+    activeSection: "blog",
+  },
+};
+
 export const PR: Story = {
   args: {
     version: {
