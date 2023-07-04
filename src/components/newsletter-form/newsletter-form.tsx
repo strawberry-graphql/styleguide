@@ -32,7 +32,7 @@ export const NewsletterForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Heading level={4} className="mb-24">
+      <Heading level={3} className="mb-24">
         Join our newsletter
       </Heading>
 
