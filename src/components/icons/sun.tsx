@@ -3,8 +3,15 @@ import * as React from "react";
 export const SunIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg width={24} height={24} viewBox="0 0 24 24" fill="none" {...props}>
+      <defs>
+        <linearGradient id="strawberry-gradient">
+          <stop offset="0%" stop-color="#EE0A78" />
+          <stop offset="100%" stop-color="#FE620A" />
+        </linearGradient>
+      </defs>
+
       <g
-        className="stroke-g-50"
+        className="stroke-g-50 group-hover:stroke-strawberry-gradient"
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"

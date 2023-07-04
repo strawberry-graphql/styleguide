@@ -95,8 +95,8 @@ export const DarkModeToggle = () => {
 
   return (
     <>
-      <MoonIcon className="dark:hidden" onClick={toggle} />
-      <SunIcon className="hidden dark:block" onClick={toggle} />
+      <MoonIcon className="dark:hidden group" onClick={toggle} />
+      <SunIcon className="hidden dark:block group" onClick={toggle} />
     </>
   );
 };
