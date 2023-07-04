@@ -1,9 +1,5 @@
 import clsx from "clsx";
-import { AlertIcon } from "../icons/alert";
-import { CheckIcon } from "../icons/check";
 import { SearchIcon } from "../icons/search";
-import { Caption } from "../typography/caption";
-import { BaseInput } from "./base-input";
 import { ErrorLabel, SuccessLabel } from "./labels";
 
 export const SearchInput = ({
@@ -15,11 +11,9 @@ export const SearchInput = ({
   onClick,
   error,
   required,
-  disabled,
   className,
   success,
   onFocus,
-  ...props
 }: {
   name?: string;
   id?: string;
@@ -29,7 +23,6 @@ export const SearchInput = ({
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   error?: string;
   required?: boolean;
-  disabled?: boolean;
   className?: string;
   success?: string;
   onFocus?: (e: any) => void;
@@ -41,7 +34,7 @@ export const SearchInput = ({
           onClick={onClick}
           className={clsx(
             "border-[1.5px] border-g-100 dark:border-g-900 rounded-[30px] px-24 py-12 typography-paragraph-2",
-            "placeholder:text-g-500 text-g-700 dark:text-g-50 disabled:text-g-400",
+            "text-g-500 dark:text-g-700",
             "bg-transparent input-border outline-none",
             "w-full cursor-pointer pl-48",
             {
