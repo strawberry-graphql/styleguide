@@ -16,7 +16,6 @@ const ranade = localFont({
     },
   ],
   variable: "--font-ranade",
-  // style: ["normal", "italic"],
 });
 
 const satoshi = localFont({

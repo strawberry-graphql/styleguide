@@ -19,9 +19,8 @@ const Link = ({
       className={clsx(
         "block py-16 typography-paragraph-2",
         "font-sans font-bold cursor-pointer relative group",
-        "hover:text-black transition-colors",
-        "dark:text-g-100",
-        { "text-black": active, "text-g-500": !active }
+        "text-black transition-colors",
+        "dark:text-g-100"
       )}
       href={href}
     >

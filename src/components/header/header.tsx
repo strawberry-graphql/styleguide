@@ -7,8 +7,8 @@ import { DarkModeToggle } from "../dark-mode/dark-mode";
 import { MenuIcon } from "../icons/menu";
 import { MenuCloseIcon } from "../icons/menu-close";
 import { Logo } from "../logo/logo";
-import { Label } from "../typography/label";
 import { MainNav } from "./main-nav";
+import { Caption } from "../typography/caption";
 
 const Version = ({ version }: { version: { name: string; href: string } }) => {
   return (
@@ -16,7 +16,7 @@ const Version = ({ version }: { version: { name: string; href: string } }) => {
       href={version.href}
       className="uppercase bg-g-50 px-16 py-8 rounded-3xl text-g-700 dark:bg-g-900 dark:text-g-400"
     >
-      <Label variant="small">{version.name}</Label>
+      <Caption className="inline-block">{version.name}</Caption>
     </a>
   );
 };
@@ -90,7 +90,7 @@ export const Header = ({
         onClick={toggleMenu}
       >
         {!isMenuOpen && (
-          <MenuIcon className="text-black menu-icon  dark:text-g-100 " />
+          <MenuIcon className="text-black menu-icon dark:text-g-100 " />
         )}
         {isMenuOpen && (
           <MenuCloseIcon className="text-g-700 dark:text-g-100 menu-icon" />
