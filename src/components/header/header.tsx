@@ -53,7 +53,7 @@ export const Header = ({
       <div className="flex-1">
         <Link
           href="/"
-          className="w-[40px] h-[40px] md:w-[67px] md:h-[80px] block"
+          className="w-[40px] h-48 md:w-[67px] md:h-[80px] block"
         >
           <Logo className="w-full h-full" />
         </Link>
