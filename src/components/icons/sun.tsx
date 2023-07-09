@@ -5,8 +5,8 @@ export const SunIcon = (props: React.SVGProps<SVGSVGElement>) => {
     <svg width={24} height={24} viewBox="0 0 24 24" fill="none" {...props}>
       <defs>
         <linearGradient id="strawberry-gradient">
-          <stop offset="0%" stop-color="#EE0A78" />
-          <stop offset="100%" stop-color="#FE620A" />
+          <stop offset="0%" stopColor="#EE0A78" />
+          <stop offset="100%" stopColor="#FE620A" />
         </linearGradient>
       </defs>
 

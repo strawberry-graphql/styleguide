@@ -5,8 +5,8 @@ export const MoonIcon = (props: React.SVGProps<SVGSVGElement>) => {
     <svg width={20} height={20} viewBox="0 0 20 20" fill="none" {...props}>
       <defs>
         <linearGradient id="strawberry-gradient-2">
-          <stop offset="0%" stop-color="#EE0A78" />
-          <stop offset="100%" stop-color="#FE620A" />
+          <stop offset="0%" stopColor="#EE0A78" />
+          <stop offset="100%" stopColor="#FE620A" />
         </linearGradient>
       </defs>
 
