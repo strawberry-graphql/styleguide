@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { ExternalLink } from "../icons/external-link";
 
 const Link = ({
   href,
@@ -30,16 +31,18 @@ const Link = ({
       onMouseLeave={onMouseLeave}
     >
       {children}
+      {href.startsWith("http") && (
+        <ExternalLink className="inline-block h-12 align-top" />
+      )}
+
+      <span className="absolute rounded-sm bottom-0 left-0 right-0 h-1 md:hidden bg-g-100" />
 
       <span
         className={clsx(
-          "absolute rounded-sm bottom-0 left-0 right-0 h-1 md:hidden",
-          "group-hover:bg-gradient-to-r group-hover:from-magenta group-hover:to-orange",
-          "bg-g-100 transition-opacity",
-          "opacity-100 from-magenta to-orange h-2 group-hover:h-2",
-          {
-            "bg-gradient-to-r ": active,
-          }
+          "absolute rounded-sm bottom-0 left-0 right-0 md:hidden",
+          "bg-gradient-to-r from-magenta to-orange h-2",
+          "transition-opacity opacity-0 duration-200",
+          { "opacity-100": active }
         )}
       />
 
@@ -63,8 +66,6 @@ export const MainNav = ({
   activeSection?: "blog" | "docs" | "github" | "discord" | "playground";
 }) => {
   const [active, setActive] = useState(activeSection);
-
-  console.log(activeSection);
 
   const links = [
     {
