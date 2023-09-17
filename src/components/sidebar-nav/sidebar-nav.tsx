@@ -91,7 +91,7 @@ export const SidebarNav = ({ sections }: { sections: Section[] }) => {
           <details
             key={section.name}
             className="mb-16 pb-16 border-b border-g-100 dark:border-g-900 group"
-            open={hasActiveLink}
+            open={true}
           >
             <TopLevelTitle>
               {section.name}
